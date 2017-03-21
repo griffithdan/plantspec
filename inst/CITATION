@@ -1,0 +1,12 @@
+citHeader("To cite package leaf.spec in publications use:")
+
+citEntry(entry = "Article",
+         title = "leaf.spec: NIR Calibration and Data Management in R",
+         author = personList(as.person("Daniel M. Griffith"),
+                             as.person("T. Michael Anderson")),
+         year = 2014,
+         journal = "in review Methods in Ecology and Evolution",
+         textVersion =
+         paste0("Daniel Griffith and T. Michael Anderson (",
+                2014,
+                "). leaf.spec: NIR Calibration and Data Management in R"))
