@@ -1,4 +1,4 @@
-Package: leaf.spec
+Package: plantspec
 Type: Package
 Title: NIR Calibration and Spectral Data Management in R
 Version: 1.0
@@ -8,5 +8,4 @@ Maintainer: Daniel M. Griffith <griffith.dan@gmail.com>
 Description: This R package provides access to a global dataset of leaf NIR spectra and contains tools for developing Partial Least Squares (PLS) regression models for predicting leaf chemistry.
 Imports: tools, KernSmooth, parallel, StatMatch, soil.spec
 Depends: pls, hyperSpec
-Repository: CRAN
 License: GPL-2
