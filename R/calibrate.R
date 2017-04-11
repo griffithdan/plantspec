@@ -181,7 +181,8 @@ calibrate <- function(component, spectra, optimal_params = NULL, optimal_model =
                           RMSEP = RMSEP(pls_mod,ncomp=rank,estimate="test",newdata=train_data[!(training_set),])[[1]][2],
                           R2_Cal = R2(pls_mod,ncomp=rank,estimate="train")[[1]][2],
                           regions = regions,
-                          preproc = preproc) 
+                          preproc = preproc,
+                          spectra = spectra) 
       if("MSC_reference" %in% names(attributes(cur_spec_train))){
           calibration$MSC_reference <- attr(cur_spec_train,"MSC_reference")
       }  
