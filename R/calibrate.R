@@ -182,7 +182,7 @@ calibrate <- function(component, spectra, optimal_params = NULL, optimal_model =
                           R2_Cal = R2(pls_mod,ncomp=rank,estimate="train")[[1]][2],
                           regions = regions,
                           preproc = preproc,
-                          spectra = spectra) 
+                          spectra = train_data$spectra) 
       if("MSC_reference" %in% names(attributes(cur_spec_train))){
           calibration$MSC_reference <- attr(cur_spec_train,"MSC_reference")
       }  
