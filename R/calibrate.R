@@ -114,8 +114,8 @@ calibrate <- function(component, spectra, optimal_params = NULL, optimal_model =
       #row.names(spectra) <- NULL
 
     train_data$spectra <- spectra
-    rm(spectra)
-    rm(component)
+    #rm(spectra)
+    #rm(component)
   
     if (validation == "testset"){
       
@@ -181,8 +181,7 @@ calibrate <- function(component, spectra, optimal_params = NULL, optimal_model =
                           RMSEP = RMSEP(pls_mod,ncomp=rank,estimate="test",newdata=train_data[!(training_set),])[[1]][2],
                           R2_Cal = R2(pls_mod,ncomp=rank,estimate="train")[[1]][2],
                           regions = regions,
-                          preproc = preproc,
-                          spectra = train_data$spectra) 
+                          preproc = preproc) 
       if("MSC_reference" %in% names(attributes(cur_spec_train))){
           calibration$MSC_reference <- attr(cur_spec_train,"MSC_reference")
       }  
@@ -191,7 +190,7 @@ calibrate <- function(component, spectra, optimal_params = NULL, optimal_model =
     calibration$training_set <- training_set
   }
   
-  calibration$data <- train_data
+  calibration$data <- list(spectra = spectra, component = component) 
   
   class(calibration) <- "PLScalibration"
   return(calibration)
