@@ -81,7 +81,9 @@ calibrate <- function(component, spectra, optimal_params = NULL, optimal_model =
       
             cur_spec <- cur_spec[row.names(spectra),]
       
-      spectra <- cur_spec
+      #spectra <- cur_spec
+      spectra <- as.spectra.matrix(cur_spec)
+
       ############################################
       #spectra <- subsetSpectra(spec=spectra,ranges=regions) # Orig
       
