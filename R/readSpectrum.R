@@ -1,5 +1,5 @@
 readSpectrum <- function(filename, wave_unit = "wavenumber", measurement_unit = "absorbance", ...){
-  spec <- read.table(file=filename,header=F,quote="", sep = ifelse(exists(sep),sep,""), ...)
+  spec <- read.table(file=filename,header=F,quote="", ...)
   colnames(spec) <- c("wave_value","measurement")
   spec_list <- list()
     attr(spec, "wave_unit") <- wave_unit
