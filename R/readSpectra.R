@@ -1,9 +1,9 @@
-readSpectra <- function(filelist, wave_unit = "wavenumber", measurement_unit = "absorbance"){
+readSpectra <- function(filelist, wave_unit = "wavenumber", measurement_unit = "absorbance", ...){
 
   f_ext <- file_ext(filelist[1])
   
   if(f_ext %in% c("dpt","txt")){
-    spec <- lapply(X=filelist,FUN=function(x){readSpectrum(x, wave_unit = wave_unit, measurement_unit = measurement_unit)[[1]]})
+    spec <- lapply(X=filelist,FUN=function(x){readSpectrum(x, wave_unit = wave_unit, measurement_unit = measurement_unit, ...)[[1]]})
     names(spec) <- basename(filelist)
     class(spec) <- "spectra.list"
     spec <- as.spectra.matrix(spec)
