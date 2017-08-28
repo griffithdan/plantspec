@@ -109,9 +109,16 @@ optimizePLS <- function(component, spectra, training_set = NULL, parallel = FALS
       ############################################################################### FEB5      
       
       
-      cur_spec_train <- subsetSpectra(spec=cur_spec_train,ranges=r_selection)
-      if (!is.null(training_set)){cur_spec_test <- subsetSpectra(spec=cur_spec_test,ranges=r_selection)} # added if statement on feb5
+      cur_spec_train <- subsetSpectra(spec=cur_spec_train,ranges=r_selection); cur_spec_train[is.na(cur_spec_train)] <- 0
+      if (!is.null(training_set)){cur_spec_test <- subsetSpectra(spec=cur_spec_test,ranges=r_selection); cur_spec_test[is.na(cur_spec_test)] <- 0} # added if statement on feb5
         
+      #fix na 2
+      
+            
+            
+
+      
+      
         #for(p in p_selection){
           
           #if(class(cur_spec_train)=="spectra.matrix"){cur_spec_train <- as.spectra.list(cur_spec_train)}
