@@ -141,8 +141,8 @@ optimizePLS <- function(component, spectra, training_set = NULL, parallel = FALS
       if("subset_string" %in% names(attributes(cur_spec))){
         
         subset_string <- attr(cur_spec,"subset_string")
-        cur_spec[,is.na(subset_string)] <- 0
-        
+        #cur_spec[,is.na(subset_string)] <- 0 # not sure where is issue came from but needs to be the next line fore the current app
+        cur_spec[is.na(cur_spec)] <- 0
       }   
       
             cur_spec <- cur_spec[row.names(spectra),]
