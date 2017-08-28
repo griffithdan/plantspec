@@ -202,6 +202,8 @@ preprocess <- function(spec,transformation,MSC_reference=NULL){
       attr(processed, "measurement_unit") <- attr(ele1, "measurement_unit")
       
     }
+  
+  processed[is.na(processed)] <- 0
 
   return(processed)
 }
