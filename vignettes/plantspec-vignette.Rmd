@@ -21,7 +21,7 @@ install.packages("devtools", repos = "http://cran.us.r-project.org")
 library(devtools)
 install_github(repo = "griffithdan/plantspec") 
   library(plantspec)
-install_github(repo = "griffithdan/plantspecDB", auth_token = "c3230d5d65790b7d965cdefeb4f8446a11048e73") # data package 
+install_github(repo = "griffithdan/plantspecDB") # data package 
   library(plantspecDB)
 ```
 
