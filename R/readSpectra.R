@@ -1,3 +1,29 @@
+#' Function to read spectra.
+#' 
+#' This function accepts a vector of file paths specifying files that contain
+#' spectra. The function incorporates these spectra into a single
+#' \code{spectra.matrix} object. The function supports .dpt, .txt, opus binary
+#' (e.g., .0), and .spc files. Files import for .spc files is done using the
+#' package \code{hpyerSpec} and import of opus format is done using the package
+#' \code{soil.spec}. These formats are auto detected. Feel free to
+#' request/suggest file formats.
+#' 
+#' 
+#' @param filelist A vector (e.g., the output of \code{list.files(full.names =
+#' TRUE)}) containing the file paths for spectra to read.
+#' @param wave_unit "wavenumber" or "wavelength".
+#' @param measurement_unit "absorbance" or "transmittance".
+#' @return Returns an object of class \code{spectra.matrix}.
+#' @author Daniel M Griffith
+#' @keywords read/write/fileio
+#' @examples
+#' 
+#' 
+#' ## MY_PATH = is a text string identifying the folder with the spectra 
+#' # specs <- readSpectra(filelist = list.files("MY_PATH", full.names = T))
+#' 
+#' 
+#' @export readSpectra
 readSpectra <- function(filelist, wave_unit = "wavenumber", measurement_unit = "absorbance", ...){
 
   f_ext <- file_ext(filelist[1])

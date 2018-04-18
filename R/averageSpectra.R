@@ -1,3 +1,33 @@
+#' Function to average spectra.
+#' 
+#' This function accepts spectra, averages them, and returns the results. This
+#' function is a simple wrapper for the aggregate function, made to work
+#' smoothly with spectra.
+#' 
+#' 
+#' @param spec An object of class \code{spectra.list} or \code{spectra.matrix}.
+#' @param by Either (i) a vector of length \code{nrow(spec)} that specifies
+#' which combinations of spectra to average together, or (ii) a single numeric
+#' value specifying how many scans to combine, in order. Using the former
+#' option, the mean spectra will be named according to the values of by. For
+#' the latter option, they will be named in order numerically.
+#' @return Returns an object of class \code{spectra.matrix}.
+#' @author Daniel M Griffith
+#' @keywords manipulation
+#' @examples
+#' 
+#' 
+#' #data(shootout)
+#' #by_vector <- gsub(pattern = "_.*",replacement = "", x = row.names(shootout_scans)) # average everything to one scan
+#' #mean_scans <- averageSpectra(spec = shootout_scans, by = by_vector)
+#' ##or...
+#' #mean_scans <- averageSpectra(spec = shootout_scans, by = 3) # average scans in groups of 3
+#' #par(mfrow=c(1,2))
+#' #plot(shootout_scans)
+#' #plot(mean_scans)
+#' 
+#' 
+#' @export averageSpectra
 averageSpectra <- function(spec = NULL, by = NULL){ # this is a glorified aggregate function, but is wrapped up to work easy for spectra
   
   if(is.null(by)){by <- row.names(spec)}

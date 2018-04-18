@@ -1,3 +1,34 @@
+#' Function to preprocess on spectra.
+#' 
+#' This function accepts spectra, performs the desired transformations, and
+#' returns the results.
+#' 
+#' 
+#' @param spec An object of class \code{spectra.list} or \code{spectra.matrix}.
+#' @param transformation The desired transformation. Selected from:\cr "RAW" -
+#' The raw spectrum, as supplied, is returned.\cr "D1f" - The first
+#' derivative.\cr "D2f" - The second derivative.\cr "COE" - Constant Offset
+#' Elimination.\cr "SLS" - Straight Line Subtraction.\cr "SNV" - Vector
+#' Normalization.\cr "MMN" - Min/Max Normalization.\cr "MSC" - Multiplicative
+#' Scattering Correction.
+#' @param MSC_reference A reference used in MSC prepreocessing. If NULL, the
+#' mean spectra of the provided spectra is used.
+#' @return Returns an object of class \code{spectra.matrix}. If MSC was
+#' performed, the mean/reference spectra is returned as an attribute called
+#' "MSC_reference."
+#' @author Daniel M Griffith
+#' @keywords manipulation
+#' @examples
+#' 
+#' 
+#' #data(shootout)
+#' #processed_data <- preprocess(spec = shootout_scans, transformation = "COE")
+#' #par(mfrow=c(1,2))
+#' #plot(shootout_scans)
+#' #plot(processed_data)
+#' 
+#' 
+#' @export preprocess
 preprocess <- function(spec,transformation,MSC_reference=NULL){
   
   if(is.data.frame(spec)){spec <- list(spec)}

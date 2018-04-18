@@ -1,3 +1,22 @@
+#' Function to convert data to an object of class \code{spectra.list}.
+#' 
+#' Convert data to an object of class \code{spectra.list} from an object of
+#' class \code{spectra.matrix}.
+#' 
+#' 
+#' @param x Object of class \code{spectra.matrix}.
+#' @param ...  Additional args.
+#' @return Returns an object of class \code{spectra.list}.
+#' @author Daniel M Griffith
+#' @keywords manipulation
+#' @examples
+#' 
+#' 
+#' #data(shootout)
+#' #scans <- as.spectra.list(shootout_scans)
+#' 
+#' 
+#' @export as.spectra.list
 as.spectra.list <- function(x, ...){
   
   if( class(x)=="spectra.list"){return(x)}else{

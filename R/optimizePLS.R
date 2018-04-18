@@ -1,3 +1,43 @@
+#' Function to optimize the preprocessing steps for a PLS model.
+#' 
+#' This function iterates combinations of preprocessing steps and spectral
+#' region subsets, fitting PLS models for each, and ranks the resulting models
+#' according to the Root Mean Squared Error of Prediction (or CV for cross
+#' validation). This process informs the selection of parameters for fitting
+#' PLS models with the function \code{calibrate()}. The function also
+#' determines the rank (number of latent vectors) that is optimal for each
+#' model.
+#' 
+#' 
+#' @param component A vector of y-values. One for each spectrum.
+#' @param spectra An object of class \code{spectra.matrix} containing spectra.
+#' Rows should be in the same order as the component y-values.
+#' @param training_set A logical vector of \code{length(component)} specifying
+#' \code{TRUE} for training/calibration data and \code{FALSE} for
+#' test/validation set data
+#' @param parallel Logical. The default is \code{FALSE}; \code{TRUE} allows for
+#' the parallelization of validation proceedures, using the number of available
+#' cores - 1. If \code{FALSE} the function will not be parallelized.
+#' @param region_list A list, where each element is a vector of length 2,
+#' specifying the range (max/min) of a spectral region to select.
+#' @param preprocessing_list A list, where each element is either (1) a single
+#' character string specifying a preprocessing step or (2) a vector of length 2
+#' specifying a series of preprocessing steps to be applied together.
+#' @return Returns an object of class \code{PLSopt}. The object is a list
+#' containing the optimization results. See the following:
+#' 
+#' optimization_results - a data.frame containing the RMSEP for each
+#' combination of preprocessing and subsetting tested\cr param_subsets - a list
+#' of regions tried\cr param_preproc - a list of preprecessing steps tried
+#' @author Daniel M Griffith
+#' @keywords calibration
+#' @examples
+#' 
+#' 
+#' # See main leaf.spec-package example.
+#' 
+#' 
+#' @export optimizePLS
 optimizePLS <- function(component, spectra, training_set = NULL, parallel = FALSE, region_list = NULL, preprocessing_list = NULL, max_comps = 10){
 
     # test out mean centering # ACTUALLY THIS SHOULD COME LAST

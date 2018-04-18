@@ -1,3 +1,25 @@
+#' Function to combine spectral datasets into one object.
+#' 
+#' This function accepts two objects of class \code{spectra.list} or
+#' \code{spectra.matrix} and combines them into one \code{spectra.matrix}.
+#' These objects should be in the same units and of the same spectral
+#' resolution and extend.
+#' 
+#' 
+#' @param x An object of class \code{spectra.list} or \code{spectra.matrix}.
+#' @param y An object of class \code{spectra.list} or \code{spectra.matrix}.
+#' @return Returns a \code{spectra.matrix}.
+#' @author Daniel M Griffith
+#' @keywords manipulation
+#' @examples
+#' 
+#' 
+#' #data(shootout)
+#' #shootout_scans_x_2 <- combineSpectra(x = shootout_scans, y = shootout_scans)
+#' 
+#' 
+#' 
+#' @export combineSpectra
 combineSpectra <- function(x, y){
   
   if(class(x) == "spectra.list"){x <- as.spectra.matrix(x)}

@@ -1,3 +1,29 @@
+#' Manipulate a spectral dataset to conform to the units, resolution, and
+#' extent of a reference dataset.
+#' 
+#' This function accepts spectra as a \code{spectra.list} or
+#' \code{spectra.matrix} object manipulates it for conform to to the
+#' units,resolution, and extent of a reference dataset.
+#' 
+#' 
+#' @param x An object of class \code{spectra.list} or \code{spectra.matrix}
+#' containing the spectra to modify.
+#' @param ref An object of class \code{spectra.list} or \code{spectra.matrix}
+#' have the attributes (units, resolution, etc.) desired for \code{x}.
+#' @return Returns an object of class \code{spectra.list} or
+#' \code{spectra.matrix} containing the modified spectra.
+#' @author Daniel M Griffith
+#' @keywords manipulation
+#' @examples
+#' 
+#' 
+#' #data(shootout)
+#' #reference <- convertSpectra(x = shootout_scans, method = "WL_to_WN")
+#' #reference <- reference[,1:100] 
+#' #makeCompatible(x = shootout_scans, ref = reference)
+#' 
+#' 
+#' @export makeCompatible
 makeCompatible <- function(x, ref){
   
   if(class(x) == "spectra.list"){x <- as.spectra.matrix(x)}

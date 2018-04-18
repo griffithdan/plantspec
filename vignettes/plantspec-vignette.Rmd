@@ -1,0 +1,77 @@
+---
+title: "The ‘plantspec’ R package: a tool for spectral analysis of plant stoichiometry"
+author: "Daniel M. Griffith & T. Michael Anderson"
+date: "April 12, 2018"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Installation
+
+Install r3PG from GitHub using devtools.
+
+```{r installation, message = FALSE, warning = FALSE, results = 'hide'}
+install.packages("devtools", repos = "http://cran.us.r-project.org")
+library(devtools)
+install_github(repo = "griffithdan/plantspec") 
+  library(plantspec)
+install_github(repo = "griffithdan/plantspecDB", auth_token = "c3230d5d65790b7d965cdefeb4f8446a11048e73") # data package 
+  library(plantspecDB)
+```
+
+## Load example dataset
+
+```{r plots, results='hide', fig.align = 'center', fig.width = 5, fig.height = 5}
+
+# STARTING RESULTS
+
+# BEGIN
+
+#######################################################################################################################
+#######################################################################################################################
+# N: Code to create this calibration
+#######################################################################################################################
+#######################################################################################################################
+  # LOAD DATA FROM leaf.spec.DB
+    data(leaf.spec.spectra)
+    data(leaf.spec.data)
+    leaf.spec.data <- leaf.spec.data[leaf.spec.data$VERSION==1,] # use dataset version 1
+      table(leaf.spec.data$FUNCTIONAL_TYPE)
+      table(leaf.spec.data$YEAR)
+      table(leaf.spec.data$SITE_NAME)
+      table(leaf.spec.data$SITE_COUNTRY)
+    
+      
+    leaf.spec.data <- leaf.spec.data[!is.na(leaf.spec.data$N),] # remove data where response is NA
+    leaf.spec.data <- subset(leaf.spec.data,!(FUNCTIONAL_TYPE=="bryophyte")) 
+    leaf.spec.data <- subset(leaf.spec.data,!(FUNCTIONAL_TYPE=="litter"))
+    
+    #leaf.spec.data <- leaf.spec.data[!(leaf.spec.data$FUNCTIONAL_TYPE=="bryophyte"|leaf.spec.data$FUNCTIONAL_TYPE=="litter"),] # remove litter and bryophytes  
+leaf.spec.data <- subset(leaf.spec.data, SCAN_FILE != "SCAN_00225.dpt ")
+
+    NUTNET_SCANS <- leaf.spec.spectra[leaf.spec.data$SCAN_FILE,] # choose scans based on remaining data
+    
+    plot(NUTNET_SCANS) # inspect scans
+    
+    component_N <- leaf.spec.data$N # for clarity, put the response in a new vector
+    training_set_MDKS <- !(subdivideDataset(spectra = NUTNET_SCANS, component = component_N, method = "MDKS", p=0.1, type = "validation")) # select a 10 % validation set with MDKS, but use ! to return TRUE for the training set 
+    N_opt <- optimizePLS(component=component_N, spectra=NUTNET_SCANS, training_set = training_set_MDKS)
+    N_cal <- calibrate(component=component_N, spectra=NUTNET_SCANS, optimal_params=N_opt, optimal_model=1, validation = "testset", training_set = training_set_MDKS)
+
+data(N_cal_23SEP2015)
+
+  N_cal$R2_Val
+  plot(N_cal)
+    
+  predict(N_cal, newdata = leaf.spec.spectra)
+  
+```
+
+
+

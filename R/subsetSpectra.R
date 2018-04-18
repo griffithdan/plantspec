@@ -1,3 +1,28 @@
+#' Function to subset regions of spectra.
+#' 
+#' This function accepts an object containing spectra and subsets it to a
+#' specified region(s).
+#' 
+#' 
+#' @param spec An object of class \code{spectra.matrix} to be subset.
+#' @param ranges A two column matrix, each row contains max and min range
+#' values.
+#' @return Returns an object of class \code{spectra.list}.
+#' @author Daniel M Griffith
+#' @keywords manipulation
+#' @examples
+#' 
+#' 
+#' #data(shootout)
+#' #s_mat <- matrix(data = c(2000,1750,1000,500), nrow = 2, ncol = 2, byrow = T)
+#' #sub_data <- subsetSpectra(spec = shootout_scans, ranges = s_mat)
+#' 
+#' #par(mfrow=c(1,2))
+#' #plot(shootout_scans)
+#' #plot(sub_data)
+#' 
+#' 
+#' @export subsetSpectra
 subsetSpectra <- function(spec,ranges){
   
     wavenumbers <- as.numeric(colnames(spec))
