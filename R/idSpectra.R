@@ -16,6 +16,7 @@
 #' #plot(shootout_scans)
 #' #idSpectra(shootout_scans)
 #' 
+#' @export
 #' 
 idSpectra <- function(spec){
   

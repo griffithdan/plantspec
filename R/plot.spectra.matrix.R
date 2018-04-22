@@ -21,8 +21,8 @@
 #' 
 #' 
 #' @export plot.spectra.matrix
-plot.spectra.matrix <- function(x, col = "black",type = NULL, xlim = NULL, ylim = NULL, ...){
+plot.spectra.matrix <- function(x, col = "black",type = NULL, xlim = NULL, ylim = NULL, base_plot = FALSE, ...){
   
-  plotSpectra(x = x, col = col, type = type, xlim = xlim, ylim = ylim, ...)
+  plotSpectra(x = x, col = col, type = type, xlim = xlim, ylim = ylim, base_plot = base_plot, ...)
 
 }
