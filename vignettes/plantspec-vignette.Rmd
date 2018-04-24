@@ -22,6 +22,9 @@ install_github(repo = "griffithdan/plantspec")
   library(plantspec)
 install_github(repo = "griffithdan/plantspecDB") # data package 
   library(plantspecDB)
+
+library(reshape2)
+library(rbokeh)
 ```
 
 ## Load example dataset
