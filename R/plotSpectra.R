@@ -103,7 +103,7 @@ a <- list(
   mirror = TRUE
 )   
    
-p <- plot_ly(x, 
+p <- plot_ly(x,# type="scattergl", mode="lines",
              x = ~Band, y = ~Value, color = ~Scan, 
              colors = rainbow(length(unique(x$Scan))),
              hoverinfo = 'text',

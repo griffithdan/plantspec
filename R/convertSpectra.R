@@ -28,11 +28,14 @@ convertSpectra <- function(x, method = NULL){
   
   if(is.null(method)){stop("Please specify a method.")}else{
 
-    if(method == "WN_to_WL"){colnames(x) <- (10^7/as.numeric(colnames(x))); attr(x, "wave_unit") <- "wavelength"}
-    if(method == "WL_to_WN"){colnames(x) <- (10^7/as.numeric(colnames(x))); attr(x, "wave_unit") <- "wavenumber"}   
+    if("WN_to_WL" %in% method){colnames(x) <- (10^7/as.numeric(colnames(x))); attr(x, "wave_unit") <- "wavelength"}
+    if("WL_to_WN" %in% method){colnames(x) <- (10^7/as.numeric(colnames(x))); attr(x, "wave_unit") <- "wavenumber"}   
         
-    if(method == "A_to_TR"){x <- 10 ^ (-x); attr(x, "measurement_unit") <- "transmittance"}
-    if(method == "TR_to_A"){x <- -log(x); attr(x, "measurement_unit") <- "absorbance"}
+    if("A_to_TR" %in% method){x <- 10 ^ (-x); attr(x, "measurement_unit") <- "transmittance"}
+    if("TR_to_A" %in% method){x <- -log(x); attr(x, "measurement_unit") <- "absorbance"}
+    
+    if("A_to_R" %in% method){x <- 10 ^ (-x); attr(x, "measurement_unit") <- "reflectance"}
+    if("R_to_A" %in% method){x <- -log(x); attr(x, "measurement_unit") <- "absorbance"}    
 
     return(x)
   }
