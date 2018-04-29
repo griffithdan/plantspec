@@ -25,6 +25,7 @@ install_github(repo = "griffithdan/plantspecDB") # data package
 
 library(reshape2)
 library(rbokeh)
+library(plotly)
 ```
 
 ## Load example dataset

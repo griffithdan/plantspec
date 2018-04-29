@@ -1,31 +1,4 @@
-
-
-#' extract methods
-#' 
-#' extract methods
-#' 
-#' 
-#' @aliases extract-methods [.spectra.matrix
-#' @param x Object of class \code{spectra.matrix}.
-#' @param ...  Additional args.
-#' @return Returns an object of class \code{spectra.matrix}.
-#' @author Daniel M Griffith
-#' @keywords manipulation
-#' @import pls, reshape2,hyperspec, soil.spec, rbokeh
-#' @examples
-#' 
-#' 
-#' #data(shootout)
-#' #shootout_scans[1:10,]
-#' 
-#' 
-NULL
-
-
-
-
-
-#' leaf.spec: NIR Calibration and Spectral Data Management in R
+#' plantspec: NIR Calibration and Spectral Data Management in R
 #' 
 #' This R package provides access to a global dataset of leaf NIR spectra and
 #' contains tools for developing Partial Least Squares (PLS) regression models
@@ -47,8 +20,8 @@ NULL
 #' See the example below for a simple workflow for fitting a spectral
 #' calibration model for nitrogen in a sample dataset.
 #' 
-#' @name leaf.spec-package
-#' @aliases leaf.spec-package leaf.spec
+#' @name plantspec-package
+#' @aliases plantspec-package plantspec
 #' @docType package
 #' @author Daniel M Griffith <griffith.dan@@gmail.com>; T. Michael Anderson
 #' <anderstm@@wfu.edu>
@@ -97,10 +70,6 @@ NULL
 #' 
 NULL
 
-
-
-
-
 #' N_cal_shootout: Shootout NIR calibration for Nitrogen
 #' 
 #' NIR calibration for Nitrogen using the \code{shootout} data.
@@ -109,7 +78,9 @@ NULL
 #' @name N_cal_shootout
 #' @docType data
 #' @format An object of class \code{PLScalibration}.
-#' @references
+#' @references McClure, W., 1998. Software shootout at the idrc98. In: The
+#' Ninth International Diffuse Reflectance Conference, Chambersburg,
+#' Pennsylvania.
 #' @keywords calibrations
 #' @examples
 #' 
@@ -158,10 +129,6 @@ NULL
 #' 
 #' 
 NULL
-
-
-
-
 
 #' Sample spectral data: software shootout at the IDRC98
 #' 

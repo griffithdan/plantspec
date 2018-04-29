@@ -1,0 +1,54 @@
+---
+title: 'The plantspec R package: a tool for spectral analysis of plant stoichiometry'
+author: "Daniel M. Griffith & T. Michael Anderson"
+date: "April 12, 2018"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Installation
+
+Install r3PG from GitHub using devtools.
+
+```{r installation, message = FALSE, warning = FALSE, results = 'hide'}
+install.packages("devtools", repos = "http://cran.us.r-project.org")
+library(devtools)
+install_github(repo = "griffithdan/plantspec") 
+  library(plantspec)
+install_github(repo = "griffithdan/plantspecDB") # data package 
+  library(plantspecDB)
+
+library(reshape2)
+library(rbokeh)
+library(plotly)
+```
+
+## Load example dataset
+
+```{r plots}
+
+# STARTING RESULTS
+
+# BEGIN
+
+#######################################################################################################################
+#######################################################################################################################
+# N: Code to create this calibration
+#######################################################################################################################
+#######################################################################################################################
+  # LOAD DATA FROM leaf.spec.DB
+    data(leaf.spec.spectra) # CHANGE NAMES
+   
+    plot(leaf.spec.spectra[1:100,]) # inspect scans #ADD BOKEH PLOTTING
+    
+ 
+  
+```
+
+
+

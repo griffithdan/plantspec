@@ -1,3 +1,24 @@
+#' extract methods
+#' 
+#' extract methods
+#' 
+#' 
+#' @aliases extract-methods [.spectra.matrix
+#' @param x Object of class \code{spectra.matrix}.
+#' @param ...  Additional args.
+#' @return Returns an object of class \code{spectra.matrix}.
+#' @author Daniel M Griffith
+#' @keywords manipulation
+#' @import pls, reshape2,hyperspec, soil.spec, rbokeh
+#' @examples
+#' 
+#' 
+#' #data(shootout)
+#' #shootout_scans[1:10,]
+#' 
+#' 
+NULL
+
 #`[.spectra.matrix` <- function(x, i, j, ...){
 #  
 #      #r <- NextMethod("[")
