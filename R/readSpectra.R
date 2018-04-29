@@ -15,6 +15,12 @@
 #' @param measurement_unit "absorbance" or "transmittance".
 #' @return Returns an object of class \code{spectra.matrix}.
 #' @author Daniel M Griffith
+#' @references Claudia Beleites and Valter Sergo: hyperSpec: a package to handle
+#'   hyperspectral data sets in R', R package version 0.99-20171005. 
+#'   http://hyperspec.r-forge.r-project.org
+#'   Andrew Sila, Tomislav Hengl and Thomas Terhoeven-Urselmans (2014). 
+#'   soil.spec: Soil Spectroscopy Tools and Reference Models. R package version 
+#'   2.1.4. https://CRAN.R-project.org/package=soil.spec
 #' @keywords read/write/fileio
 #' @examples
 #' 
@@ -49,7 +55,7 @@ readSpectra <- function(filelist, wave_unit = "wavenumber", measurement_unit = "
   if(f_ext %in% c("spc")){
     spec <- lapply(X=filelist,FUN=function(x){read.spc(filename = x)$spc})
     spec <- do.call('rbind',spec)
-    colnames(spec) <- read.spc(filename = filelist[[1]])@wavelength
+    colnames(spec) <- hyperSpec::read.spc(filename = filelist[[1]])@wavelength
     row.names(spec) <- basename(filelist)
     
       attr(spec, "wave_unit") <- wave_unit

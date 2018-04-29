@@ -35,6 +35,14 @@ request/suggest file formats.
 
 
 }
+\references{
+Claudia Beleites and Valter Sergo: hyperSpec: a package to handle
+  hyperspectral data sets in R', R package version 0.99-20171005. 
+  http://hyperspec.r-forge.r-project.org
+  Andrew Sila, Tomislav Hengl and Thomas Terhoeven-Urselmans (2014). 
+  soil.spec: Soil Spectroscopy Tools and Reference Models. R package version 
+  2.1.4. https://CRAN.R-project.org/package=soil.spec
+}
 \author{
 Daniel M Griffith
 }

@@ -28,7 +28,9 @@
 #' (2013). pls: Partial Least Squares and Principal Component regression. R
 #' package version 2.4-3. http://CRAN.R-project.org/package=pls
 #' @keywords package
-#' @import tools KernSmooth parallel StatMatch soil.spec reshape2 plotly pls hyperSpec
+#' @import tools KernSmooth parallel StatMatch reshape2 plotly pls
+#' @importFrom soil.spec read.opus
+#' @importFrom hyperSpec read.spc
 #' @examples
 #' 
 NULL
