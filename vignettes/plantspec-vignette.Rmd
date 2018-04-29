@@ -40,23 +40,23 @@ install_github(repo = "griffithdan/plantspecDB") # data package
   # LOAD DATA FROM leaf.spec.DB
     data(plantspec.spectra) 
     data(plantspec.data)
-    leaf.spec.data <- leaf.spec.data[leaf.spec.data$VERSION==1,] # use dataset version 1
-      table(leaf.spec.data$FUNCTIONAL_TYPE)
-      table(leaf.spec.data$YEAR)
-      table(leaf.spec.data$SITE_NAME)
-      table(leaf.spec.data$SITE_COUNTRY)
+    plantspec.data <- plantspec.data[plantspec.data$VERSION==1,] # use dataset version 1
+      table(plantspec.data$FUNCTIONAL_TYPE)
+      table(plantspec.data$YEAR)
+      table(plantspec.data$SITE_NAME)
+      table(plantspec.data$SITE_COUNTRY)
     
       
     # ADD DISCUSSION OF SUBSETTING  
-    leaf.spec.data <- leaf.spec.data[!is.na(leaf.spec.data$N),] # remove data where response is NA
-    leaf.spec.data <- subset(leaf.spec.data,!(FUNCTIONAL_TYPE=="bryophyte")) 
-    leaf.spec.data <- subset(leaf.spec.data,!(FUNCTIONAL_TYPE=="litter"))
+    plantspec.data <- plantspec.data[!is.na(plantspec.data$N),] # remove data where response is NA
+    plantspec.data <- subset(plantspec.data,!(FUNCTIONAL_TYPE=="bryophyte")) 
+    plantspec.data <- subset(plantspec.data,!(FUNCTIONAL_TYPE=="litter"))
     
     #leaf.spec.data <- leaf.spec.data[!(leaf.spec.data$FUNCTIONAL_TYPE=="bryophyte"|leaf.spec.data$FUNCTIONAL_TYPE=="litter"),] # remove litter and bryophytes  
     #ADD PLOT BEFORE HERE THAT IDs this spec
-leaf.spec.data <- subset(leaf.spec.data, SCAN_FILE != "SCAN_00225.dpt ")
+    plantspec.data <- subset(plantspec.data, SCAN_FILE != "SCAN_00225.dpt")
 
-    NUTNET_SCANS <- leaf.spec.spectra[leaf.spec.data$SCAN_FILE,] # choose scans based on remaining data
+    NUTNET_SCANS <- plantspec.spectra[plantspec.data$SCAN_FILE,] # choose scans based on remaining data
     
     plot(NUTNET_SCANS) # inspect scans #ADD BOKEH PLOTTING
     

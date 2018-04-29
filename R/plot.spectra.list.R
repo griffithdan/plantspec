@@ -18,7 +18,7 @@
 #' 
 #' #data(shootout)
 #' #plot(shootout_scans)
-#' 
+#' @s3method
 #' 
 plot.spectra.list <- function(x, col = "black",type = NULL, xlim = NULL, ylim = NULL, base_plot = FALSE, ...){
   

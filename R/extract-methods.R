@@ -2,13 +2,14 @@
 #' 
 #' extract methods
 #' 
-#' @name [.spectra.matrix
+#' @name extract-methods
 #' @aliases extract-methods [.spectra.matrix
 #' @param x Object of class \code{spectra.matrix}.
 #' @param ...  Additional args.
 #' @return Returns an object of class \code{spectra.matrix}.
 #' @author Daniel M Griffith
 #' @keywords manipulation
+#' @s3method
 #' 
 NULL
 
