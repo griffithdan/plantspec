@@ -4,7 +4,7 @@
 \alias{predict.PLScalibration}
 \title{Prediction method for \code{PLScalibration}.}
 \usage{
-\method{predict}{PLScalibration}(object, newdata, ...)
+predict.PLScalibration(object, newdata, ...)
 }
 \arguments{
 \item{object}{An object of class \code{PLScalibration} containing the model.}
