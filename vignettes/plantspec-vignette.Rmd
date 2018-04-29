@@ -22,10 +22,6 @@ install_github(repo = "griffithdan/plantspec")
   library(plantspec)
 install_github(repo = "griffithdan/plantspecDB") # data package 
   library(plantspecDB)
-
-library(reshape2)
-library(rbokeh)
-library(plotly)
 ```
 
 ## Load example dataset
@@ -42,8 +38,8 @@ library(plotly)
 #######################################################################################################################
 #######################################################################################################################
   # LOAD DATA FROM leaf.spec.DB
-    data(leaf.spec.spectra) # CHANGE NAMES
-    data(leaf.spec.data)
+    data(plantspec.spectra) 
+    data(plantspec.data)
     leaf.spec.data <- leaf.spec.data[leaf.spec.data$VERSION==1,] # use dataset version 1
       table(leaf.spec.data$FUNCTIONAL_TYPE)
       table(leaf.spec.data$YEAR)

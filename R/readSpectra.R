@@ -12,7 +12,7 @@
 #' @param filelist A vector (e.g., the output of \code{list.files(full.names =
 #' TRUE)}) containing the file paths for spectra to read.
 #' @param wave_unit "wavenumber" or "wavelength".
-#' @param measurement_unit "absorbance" or "transmittance".
+#' @param measurement_unit "absorbance" or "transmittance" or "reflectance".
 #' @return Returns an object of class \code{spectra.matrix}.
 #' @author Daniel M Griffith
 #' @references Claudia Beleites and Valter Sergo: hyperSpec: a package to handle
@@ -30,8 +30,11 @@
 #' 
 #' 
 #' @export readSpectra
-readSpectra <- function(filelist, wave_unit = "wavenumber", measurement_unit = "absorbance", ...){
+readSpectra <- function(filelist, wave_unit = "wavenumber", measurement_unit = NULL, ...){
 
+  if(is.null(measurement_unit)){measurement_unit <- "absorbance"; warning("No measurement unit specified, defaulting to 'absorbance'")}
+  if(!(measurement_unit %in% c("absorbance","transmittance","reflectance"))){warning("Incorrect measurement unit specified")}
+  
   f_ext <- file_ext(filelist[1])
   
   if(f_ext %in% c("dpt","txt")){

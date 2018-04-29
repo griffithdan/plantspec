@@ -5,10 +5,13 @@
 #' 
 #' 
 #' @param x An object of class \code{spectra.list} or \code{spectra.matrix}.
-#' @param method The desired conversion. Selected from:\cr "A_to_TR" -
-#' Absorbance to Transmittance.\cr "TR_to_A" - Transmittance to Absorbance.\cr
-#' "WN_to_WL" - Wavenumbers to Wavelength.\cr "WL_to_WN" - Wavelength to
-#' Wavenumbers.
+#' @param method The desired conversion. Selected from:
+#'   \cr "A_to_TR" - Absorbance to Transmittance.
+#'   \cr "TR_to_A" - Transmittance to Absorbance.
+#'   \cr "A_to_TR" - Absorbance to Transmittance.
+#'   \cr "TR_to_A" - Transmittance to Absorbance.
+#'   \cr "WN_to_WL" - Wavenumbers to Wavelength.
+#'   \cr "WL_to_WN" - Wavelength to Wavenumbers.
 #' @return A \code{spectra.matrix} containing the converted spectra.
 #' @author Daniel M Griffith
 #' @keywords manipulation
@@ -32,10 +35,10 @@ convertSpectra <- function(x, method = NULL){
     if("WL_to_WN" %in% method){colnames(x) <- (10^7/as.numeric(colnames(x))); attr(x, "wave_unit") <- "wavenumber"}   
         
     if("A_to_TR" %in% method){x <- 10 ^ (-x); attr(x, "measurement_unit") <- "transmittance"}
-    if("TR_to_A" %in% method){x <- -log(x); attr(x, "measurement_unit") <- "absorbance"}
+    if("TR_to_A" %in% method){x <- log10(1/x); attr(x, "measurement_unit") <- "absorbance"}
     
     if("A_to_R" %in% method){x <- 10 ^ (-x); attr(x, "measurement_unit") <- "reflectance"}
-    if("R_to_A" %in% method){x <- -log(x); attr(x, "measurement_unit") <- "absorbance"}    
+    if("R_to_A" %in% method){x <- log10(1/x); attr(x, "measurement_unit") <- "absorbance"}    
 
     return(x)
   }

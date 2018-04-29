@@ -25,8 +25,8 @@ plotSpectra <- function(x, col = "black",type = NULL, xlim = NULL, ylim = NULL, 
       yvals <- x[[1]]$measurement
       xvals <- x[[1]]$wave_value
       plot(yvals ~ xvals,ylim=ylims,xlim=xlims,type = linetype,
-          ylab = ifelse(attr(x[[1]],"measurement_unit") == "absorbance", "Absorbance", "Transmittance"), 
-          xlab = ifelse(attr(x[[1]],"wave_unit") == "wavenumber","Wavenumber","Wavelength"),
+          ylab = Hmisc::capitalize(attr(x[[1]],"measurement_unit")), 
+          xlab = Hmisc::capitalize(attr(x[[1]],"wave_unit")),
           col = col, ...)# reg mode
       #plot(yvals ~ xvals,type = "l",ylab = "Absorbance", xlab = "Wavenumber",col = col,main=names(x)[1]) # checkmode
       
@@ -103,15 +103,15 @@ a <- list(
   mirror = TRUE
 )   
    
-p <- plot_ly(x,# type="scattergl", mode="lines",
+p <- plot_ly(x, 
              x = ~Band, y = ~Value, color = ~Scan, 
              colors = rainbow(length(unique(x$Scan))),
              hoverinfo = 'text',
              text = ~paste('Scan: ', Scan,
                            '</br></br> Band: ', Band,
                            '</br> Value: ', Value)) %>%
-    layout(xaxis = a,
-           yaxis = a) %>%
+    layout(xaxis = list(a, title = Hmisc::capitalize(attr(x,"wave_unit"))),
+           yaxis = list(a, title = Hmisc::capitalize(attr(x,"measurement_unit")))) %>%
   add_lines(line = list(width = 0.75))
 p 
    
