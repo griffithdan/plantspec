@@ -9,7 +9,7 @@
 #' @return Returns an object of class \code{spectra.matrix}.
 #' @author Daniel M Griffith
 #' @keywords manipulation
-#' @export
+#' @export [.spectra.matrix
 #' 
 NULL
 
