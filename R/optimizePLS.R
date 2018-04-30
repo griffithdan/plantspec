@@ -64,7 +64,12 @@ optimizePLS <- function(component, spectra, training_set = NULL, parallel = FALS
                         c(5450,4600),
                         c(4600,4250)) # different format than subsetSpectra... should make the same for consistency
       }else{
-        stopifnot(is.list(region_list))
+        
+        if(is.matrix(region_list)){
+          region_list <- split(region_list, rep(1:nrow(region_list), each = ncol(region_list)))
+          names(region_list) <- NULL
+        }
+        
         regions <- region_list
         regions <- lapply(regions,function(x){sort(x, decreasing = TRUE)})
       }

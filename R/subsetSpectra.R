@@ -6,7 +6,9 @@
 #' 
 #' @param spec An object of class \code{spectra.matrix} to be subset.
 #' @param ranges A two column matrix, each row contains max and min range
-#' values.
+#' values. Alternatively, a list, where each element is a vector of length 2,
+#' specifying the range (max/min) of a spectral region to select. Should be in 
+#' the same units as your spectra (e.g., wavenumbers).
 #' @return Returns an object of class \code{spectra.list}.
 #' @author Daniel M Griffith
 #' @keywords manipulation
@@ -23,11 +25,16 @@
 #' 
 #' 
 #' @export subsetSpectra
-subsetSpectra <- function(spec,ranges){
+subsetSpectra <- function(spec, ranges){
   
     wavenumbers <- as.numeric(colnames(spec))
     wn_ind <- rep(FALSE,times=length(wavenumbers))
     
+    if(is.list(ranges)){
+        ranges <- lapply(ranges,function(x){sort(x, decreasing = TRUE)})
+        ranges <- matrix(data = unlist(ranges), ncol = 2, byrow = TRUE)
+    }
+
     for(r in 1:nrow(ranges)){
       
       range <- ranges[r,]
