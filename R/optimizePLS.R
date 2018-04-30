@@ -19,7 +19,8 @@
 #' the parallelization of validation proceedures, using the number of available
 #' cores - 1. If \code{FALSE} the function will not be parallelized.
 #' @param region_list A list, where each element is a vector of length 2,
-#' specifying the range (max/min) of a spectral region to select.
+#' specifying the range (max/min) of a spectral region to select. Should be in 
+#' the same units as your spectra (e.g., wavenumbers).
 #' @param preprocessing_list A list, where each element is either (1) a single
 #' character string specifying a preprocessing step or (2) a vector of length 2
 #' specifying a series of preprocessing steps to be applied together.
@@ -65,6 +66,7 @@ optimizePLS <- function(component, spectra, training_set = NULL, parallel = FALS
       }else{
         stopifnot(is.list(region_list))
         regions <- region_list
+        regions <- lapply(regions,function(x){sort(x, decreasing = TRUE)})
       }
   
     # PREPROCESSING
@@ -87,7 +89,7 @@ optimizePLS <- function(component, spectra, training_set = NULL, parallel = FALS
         preprocessing <- preprocessing_list
       }
       if (length(preprocessing) < 1){preprocessing <- list("RAW")}
-      if (length(regions) < 1){regions <- list(c(9400,4250))}
+      if (length(regions) < 1){regions <- list(c(max(as.numeric(colnames(spectra))),min(as.numeric(colnames(spectra)))))}
     
     ind <- expand.grid(rep(list(c(1:length(regions))),length(regions)))
     ind <- unique(apply(X=ind,1,FUN=function(x){unique(sort(x))}))

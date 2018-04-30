@@ -26,7 +26,7 @@ install_github(repo = "griffithdan/plantspecDB") # data package
 
 ## Load example dataset
 
-```{r plots, results='hide', fig.align = 'center', fig.width = 5, fig.height = 5}
+```{r plots, fig.align = 'center', fig.width = 5, fig.height = 5}
 
 # STARTING RESULTS
 
@@ -57,9 +57,9 @@ install_github(repo = "griffithdan/plantspecDB") # data package
     plantspec.data <- subset(plantspec.data, SCAN_FILE != "SCAN_00225.dpt")
 
     NUTNET_SCANS <- plantspec.spectra[plantspec.data$SCAN_FILE,] # choose scans based on remaining data
-    
-    plot(NUTNET_SCANS) # inspect scans #ADD BOKEH PLOTTING
-    
+    p <- plot(NUTNET_SCANS) # inspect scans
+    p$width <- 900
+    p
     #component_N <- leaf.spec.data$N # for clarity, put the response in a new vector
     #training_set_MDKS <- !(subdivideDataset(spectra = NUTNET_SCANS, component = component_N, method = "MDKS", p=0.1, type = "validation")) # select a 10 % validation set with MDKS, but use ! to return TRUE for the training set 
     #N_opt <- optimizePLS(component=component_N, spectra=NUTNET_SCANS, training_set = training_set_MDKS)
