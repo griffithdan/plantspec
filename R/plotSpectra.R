@@ -116,8 +116,8 @@ p <- plot_ly(x,
              colors = rainbow(length(unique(x$Scan))),
              hoverinfo = 'text',
              text = ~paste('Scan: ', Scan,
-                           '</br></br> Band: ', Band,
-                           '</br> Value: ', Value)) %>%
+                           '</br></br> x-axis: ', Band,
+                           '</br> y-axis: ', Value)) %>%
     layout(xaxis = xax,
            yaxis = yax) %>%
   add_lines(line = list(width = 0.75))
