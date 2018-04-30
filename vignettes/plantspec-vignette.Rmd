@@ -11,68 +11,158 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Data on plant elemental stoichiometry is essential for ecologists investigating ecosystem function, nutrient cycling, plant-herbivore interactions, and leaf economics. A cost effective approach to leaf elemental analysis is near-infrared spectroscopy (NIRS), whereby components such as carbon (C), nitrogen (N), phosphorus (P), and potassium (K) can be predicted using NIR spectra from plant material. However, a major factor limiting the widespread use of NIRS by plant ecologists is the availability of free software and calibration data for developing plant chemistry datasets from spectra. Here, we present a pair of companion R packages (‘plantspec’ and ‘plantspecDB’) that satisfy this need by providing an entire workflow, from spectra to predicted elemental data. The main R package, called ‘plantspec’, allows users to manipulate spectral data and develop custom partial least square (PLS) models for predicting the elemental composition of their own datasets. The second package, ‘plantspecDB’, provides NIR spectra, and matched elemental data obtained with standard analytical techniques, for herbaceous samples collected from 18 grassland sites around the world, primarily sourced from the Nutrient Network experiment. The ‘plantspecDB’ data package also provides calibrations for C, N, P, and K for bulk samples and separated by plant functional type (grasses, forbs and legumes). 
+
+Here, we provide an example of the ‘plantspec’ workflow that produces an NIR calibration for N, similar to the one reported in Anderson et al. (2018). This workflow provides a template to produce robust calibration models and increase the application of NIR in ecology. Although we focus on plant stoichiometry, the workflow presented here can be applied broadly for a broad range of applications, including soils, remote sensing data, solutions and tissues. Finally, our global dataset provides unprecedented access to NIR calibration data as they pertain to tissue concentrations of key plant limiting elements. We hope that 'plantspec' will help to form a community of users who share data in order to increase the utility of NIR for ecologists, and we provide a submission portal to facilitate data sharing: [plantspec submission portal](https://griffithdan.github.io/pages/code_and_data/plantspec/data-submission.html).
+
+## Functionality in 'plantspec'
+
+- Functions for reading and writing spectra (currently spc, dpt, txt, and OPUS files). 
+- Tools for spectral manipulation and management (e.g., preprocessing, conversion, subsetting).
+- Tools for sample selection and experimental design (e.g., Modified Kennard-Stone selection).
+- Wrapper functions for optimization and fitting of spectral calibration models.
+- Methods for (interactive) plotting spectra and models.
+- Tools for evaluating model output (e.g., Mahalanobis distance).
+- Data and global calibrations for leaf C, N, P, and K, documented in the companion data package plantspecDB.
+- Data for examples, documented in shootout data from McClure (1998).
+
 ## Installation
 
-Install r3PG from GitHub using devtools.
+Install 'plantspec' and 'plantspecDB' from GitHub using devtools.
 
 ```{r installation, message = FALSE, warning = FALSE, results = 'hide'}
-install.packages("devtools", repos = "http://cran.us.r-project.org")
 library(devtools)
-install_github(repo = "griffithdan/plantspec") 
+install_github(repo = "griffithdan/plantspec") # Install analysis package
   library(plantspec)
-install_github(repo = "griffithdan/plantspecDB") # data package 
+install_github(repo = "griffithdan/plantspecDB") # Install data package 
   library(plantspecDB)
 ```
 
-## Load example dataset
+## Load example datasets
 
-```{r plots, fig.align = 'center', fig.width = 5, fig.height = 5}
-
-# STARTING RESULTS
-
-# BEGIN
-
-#######################################################################################################################
-#######################################################################################################################
-# N: Code to create this calibration
-#######################################################################################################################
-#######################################################################################################################
-  # LOAD DATA FROM leaf.spec.DB
+```{r data}
     data(plantspec.spectra) 
     data(plantspec.data)
-    plantspec.data <- plantspec.data[plantspec.data$VERSION==1,] # use dataset version 1
-      table(plantspec.data$FUNCTIONAL_TYPE)
-      table(plantspec.data$YEAR)
-      table(plantspec.data$SITE_NAME)
-      table(plantspec.data$SITE_COUNTRY)
-    
-      
-    # ADD DISCUSSION OF SUBSETTING  
-    plantspec.data <- plantspec.data[!is.na(plantspec.data$N),] # remove data where response is NA
-    plantspec.data <- subset(plantspec.data,!(FUNCTIONAL_TYPE=="bryophyte")) 
-    plantspec.data <- subset(plantspec.data,!(FUNCTIONAL_TYPE=="litter"))
-    
-    #leaf.spec.data <- leaf.spec.data[!(leaf.spec.data$FUNCTIONAL_TYPE=="bryophyte"|leaf.spec.data$FUNCTIONAL_TYPE=="litter"),] # remove litter and bryophytes  
-    #ADD PLOT BEFORE HERE THAT IDs this spec
-    plantspec.data <- subset(plantspec.data, SCAN_FILE != "SCAN_00225.dpt")
-
-    NUTNET_SCANS <- plantspec.spectra[plantspec.data$SCAN_FILE,] # choose scans based on remaining data
-    p <- plot(NUTNET_SCANS) # inspect scans
-    p$width <- 900
-    p
-    #component_N <- leaf.spec.data$N # for clarity, put the response in a new vector
-    #training_set_MDKS <- !(subdivideDataset(spectra = NUTNET_SCANS, component = component_N, method = "MDKS", p=0.1, type = "validation")) # select a 10 % validation set with MDKS, but use ! to return TRUE for the training set 
-    #N_opt <- optimizePLS(component=component_N, spectra=NUTNET_SCANS, training_set = training_set_MDKS)
-    #N_cal <- calibrate(component=component_N, spectra=NUTNET_SCANS, optimal_params=N_opt, optimal_model=1, validation = "testset", training_set = training_set_MDKS)
-
-#data(N_cal_23SEP2015)
-
-  #N_cal$R2_Val
-  #plot(N_cal)
-    
-  #predict(N_cal, newdata = leaf.spec.spectra)
-  
 ```
 
+## Data organization and plotting
+The dataset 'plantspec.data' includes all of the wet lab data for this example. We will start by subsetting those data until have have only the data we want to use for model fitting. For example, we only want data from the original dataset and excluding Bryophytes and litter samples.
 
+```{r org, results = 'hide'}
 
+# Use dataset version 1
+  plantspec.data <- plantspec.data[plantspec.data$VERSION==1,] 
+
+# Data summaries (results hidden) 
+    table(plantspec.data$FUNCTIONAL_TYPE)
+    table(plantspec.data$YEAR)
+    table(plantspec.data$SITE_NAME)
+    table(plantspec.data$SITE_COUNTRY)
+    
+# Subset the dataset
+  # Remove NA values for N
+    plantspec.data <- plantspec.data[!is.na(plantspec.data$N),]
+  # Remove Bryophyte and litter data  
+    plantspec.data <- subset(plantspec.data, !(FUNCTIONAL_TYPE == "bryophyte")) 
+    plantspec.data <- subset(plantspec.data, !(FUNCTIONAL_TYPE == "litter"))
+    
+```
+
+We should now plot the spectral data using an interactive plot so that we can determine if there are outliers or other issues with the data.
+
+```{r iplot, fig.align = 'center', fig.width = 5, fig.height = 5}
+p <- plot(plantspec.spectra) 
+p$width <- 900 # Change width for rmarkdown
+p
+```
+<br>
+Hovering a cursor over this figure allows you to identify that there is something wrong with the scan named "SCAN_00225.dpt" and it should be removed. The function idSpectra() can also be used in the base R plot for identifying specific spectra. To remove the suspect spectrum, we simply need subset the wet lab table again. Finally, we will use the wet lab table to subset the spectral data. 
+<br>
+```{r bplot, fig.align = 'center', fig.width = 5, fig.height = 5}
+# Remove suspect scan    
+  plantspec.data <- subset(plantspec.data, SCAN_FILE != "SCAN_00225.dpt")
+
+# Subset the spectral data based on the parameters we specified for wet lab data
+  NUTNET_SCANS <- plantspec.spectra[plantspec.data$SCAN_FILE,]
+  
+# Base R plot for filtered scans
+  plot(NUTNET_SCANS, base_plot = TRUE) # inspect scans
+
+```
+
+## Model fitting and validation
+
+```{r fit, results = 'hide', fig.align = 'center', fig.width = 5, fig.height = 5}
+# Select the component of interest (i.e., Nitrogen)
+  component_N <- plantspec.data$N # new vector for clarity
+
+# Select a training set for model fitting (i.e., FALSE values for test set)
+#  - use "!" because subdivideDataset() returns TRUE for test set selections.
+#  - use "type = 'validation'" so both training and test data are representative. 
+  training_set_MDKS <- !(subdivideDataset(spectra = NUTNET_SCANS, 
+                                          component = component_N, 
+                                          method = "MDKS", 
+                                          p = 0.1, # 10% for this example  
+                                          type = "validation")) 
+
+# Optimize the preprocessing for spectra and spectral subsetting to emphasize
+# the important spectra features related to predicting N. This can be very time
+# consuming.
+  N_opt <- optimizePLS(component = component_N, 
+                       spectra = NUTNET_SCANS, 
+                       training_set = training_set_MDKS)
+  
+# Fit our PLS regression using the optimal setting from our optimization.
+  N_cal <- calibrate(component = component_N, 
+                     spectra = NUTNET_SCANS, 
+                     optimal_params = N_opt, 
+                     optimal_model = 1, # In N_opt, use the best model
+                     validation = "testset", 
+                     training_set = training_set_MDKS)
+```
+<br>
+Now, evaluate the model validation and use the model to predict new data.
+<br>
+```{r evaluate, fig.align = 'center', fig.width = 5, fig.height = 5}
+# Test set validation R2 from the PLS regression
+  N_cal$R2_Val
+
+# Plot PLS calibration 
+# - N_cal is an object defined in the pls R package (Mevik et al 2013)
+  plot(N_cal)
+
+# Use out model to predict and an external dataset
+# - makeCompatible() gives the new data the same properties as our training data
+  data(shootout)
+  N_pred <- predict(N_cal, newdata = makeCompatible(x = shootout_scans, 
+                                                    ref = NUTNET_SCANS))
+
+# N_pred has attributes that include outlier assessment by Mahalanobis distance  
+  hist(N_pred, col = "grey")
+
+```
+<br>
+
+## References
+
+ - Anderson, T. M., Griffith, D. M., Grace, J. B., Lind, E. M., Adler, P. B., Biederman, L. A., ... & Harpole, W. S. (2018). Herbivory and eutrophication mediate grassland plant nutrient responses across a global climatic gradient. Ecology, 99(4), 822-831.
+ - Bjorn-Helge Mevik, Ron Wehrens and Kristian Hovde Liland (2013). pls: Partial Least Squares and Principal Component regression. R package version 2.4-3. http://CRAN.R-project.org/package=pls
+ - McClure, W., 1998. Software shootout at the idrc98. In: The Ninth International Diffuse Reflectance Conference, Chambersburg, Pennsylvania. 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
