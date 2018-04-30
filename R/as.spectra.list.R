@@ -15,8 +15,8 @@
 #' #data(shootout)
 #' #scans <- as.spectra.list(shootout_scans)
 #' 
-#' @s3method
 #' @export as.spectra.list
+#' @export 
 as.spectra.list <- function(x, ...){
   
   if( class(x)=="spectra.list"){return(x)}else{

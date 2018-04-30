@@ -4,8 +4,8 @@
 \alias{readSpectra}
 \title{Function to read spectra.}
 \usage{
-readSpectra(filelist, wave_unit = "wavenumber",
-  measurement_unit = "absorbance", ...)
+readSpectra(filelist, wave_unit = "wavenumber", measurement_unit = NULL,
+  ...)
 }
 \arguments{
 \item{filelist}{A vector (e.g., the output of \code{list.files(full.names =
@@ -13,7 +13,7 @@ TRUE)}) containing the file paths for spectra to read.}
 
 \item{wave_unit}{"wavenumber" or "wavelength".}
 
-\item{measurement_unit}{"absorbance" or "transmittance".}
+\item{measurement_unit}{"absorbance" or "transmittance" or "reflectance".}
 }
 \value{
 Returns an object of class \code{spectra.matrix}.

@@ -25,7 +25,6 @@ class \code{spectra.list}.
 #scans <- as.spectra.list(shootout_scans)
 #scans <- as.spectra.matrix(scans)
 
-
 }
 \author{
 Daniel M Griffith

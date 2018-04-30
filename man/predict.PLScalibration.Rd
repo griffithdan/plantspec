@@ -4,7 +4,7 @@
 \alias{predict.PLScalibration}
 \title{Prediction method for \code{PLScalibration}.}
 \usage{
-predict.PLScalibration(object, newdata, ...)
+\method{predict}{PLScalibration}(object, newdata, ...)
 }
 \arguments{
 \item{object}{An object of class \code{PLScalibration} containing the model.}
@@ -42,7 +42,6 @@ multivariate center of the calibration dataset) for each new sample.
 
 #N_predicted <- predict(object = N_cal_shootout, newdata = shootout_scans)
 #hist(N_predicted)
-
 
 }
 \author{

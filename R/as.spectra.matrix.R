@@ -16,8 +16,8 @@
 #' #scans <- as.spectra.list(shootout_scans)
 #' #scans <- as.spectra.matrix(scans)
 #' 
-#' @s3method
 #' @export as.spectra.matrix
+#' @export 
 as.spectra.matrix <- function(x, ...){
   
   if(is.matrix(x)|is.data.frame(x)){

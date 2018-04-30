@@ -23,8 +23,8 @@
 #' #data(N_cal_shootout)
 #' #plot(N_cal_shootout)
 #' 
-#' @s3method
 #' @export plot.PLScalibration
+#' @export 
 plot.PLScalibration <- function(x, pch = 21, bg = "gray", ncomp = NULL, plottype = "prediction", ...){
   
   plotPLScalibration(x = x, pch = pch, bg = bg, ncomp = ncomp, plottype = plottype, ...)

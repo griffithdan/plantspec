@@ -79,6 +79,9 @@ plotSpectra <- function(x, col = "black",type = NULL, xlim = NULL, ylim = NULL, 
           x <- as.spectra.matrix(x)
     }
     
+    xlab <- Hmisc::capitalize(attr(x,"wave_unit"))
+    ylab <- Hmisc::capitalize(attr(x,"measurement_unit"))
+    
     class(x) <- "matrix"
 
       bds <- floor(seq(from = 1, to = ncol(x), length.out = 200))
@@ -101,7 +104,12 @@ a <- list(
   showticklabels = TRUE,
   showgrid = FALSE,
   mirror = TRUE
-)   
+)  
+
+xax <- a
+yax <- a
+xax$title <- xlab
+yax$title <- ylab
    
 p <- plot_ly(x, 
              x = ~Band, y = ~Value, color = ~Scan, 
@@ -110,8 +118,8 @@ p <- plot_ly(x,
              text = ~paste('Scan: ', Scan,
                            '</br></br> Band: ', Band,
                            '</br> Value: ', Value)) %>%
-    layout(xaxis = list(a, title = Hmisc::capitalize(attr(x,"wave_unit"))),
-           yaxis = list(a, title = Hmisc::capitalize(attr(x,"measurement_unit")))) %>%
+    layout(xaxis = xax,
+           yaxis = yax) %>%
   add_lines(line = list(width = 0.75))
 p 
    

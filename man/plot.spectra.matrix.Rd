@@ -31,7 +31,6 @@ This function accepts spectra in a \code{spectra.list} or
 #data(shootout)
 #plot(shootout_scans)
 
-
 }
 \author{
 Daniel M Griffith

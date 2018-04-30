@@ -33,8 +33,8 @@
 #' #N_predicted <- predict(object = N_cal_shootout, newdata = shootout_scans)
 #' #hist(N_predicted)
 #' 
-#' @s3method
 #' @export predict.PLScalibration
+#' @export 
 predict.PLScalibration <- function(object, newdata, ...){
     
   predictPLS(object = object, newdata = newdata, ...)
