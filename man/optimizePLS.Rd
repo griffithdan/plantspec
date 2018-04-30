@@ -22,7 +22,8 @@ the parallelization of validation proceedures, using the number of available
 cores - 1. If \code{FALSE} the function will not be parallelized.}
 
 \item{region_list}{A list, where each element is a vector of length 2,
-specifying the range (max/min) of a spectral region to select.}
+specifying the range (max/min) of a spectral region to select. Should be in 
+the same units as your spectra (e.g., wavenumbers).}
 
 \item{preprocessing_list}{A list, where each element is either (1) a single
 character string specifying a preprocessing step or (2) a vector of length 2

@@ -10,7 +10,9 @@ subsetSpectra(spec, ranges)
 \item{spec}{An object of class \code{spectra.matrix} to be subset.}
 
 \item{ranges}{A two column matrix, each row contains max and min range
-values.}
+values. Alternatively, a list, where each element is a vector of length 2,
+specifying the range (max/min) of a spectral region to select. Should be in 
+the same units as your spectra (e.g., wavenumbers).}
 }
 \value{
 Returns an object of class \code{spectra.list}.

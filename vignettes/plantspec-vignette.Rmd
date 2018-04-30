@@ -71,7 +71,7 @@ The dataset 'plantspec.data' includes all of the wet lab data for this example. 
 We should now plot the spectral data using an interactive plot so that we can determine if there are outliers or other issues with the data.
 
 ```{r iplot, fig.align = 'center', fig.width = 5, fig.height = 5}
-p <- plot(plantspec.spectra) 
+p <- plot(plantspec.spectra[200:250,]) 
 p$width <- 900 # Change width for rmarkdown
 p
 ```
