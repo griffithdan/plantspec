@@ -2,7 +2,7 @@ Data on plant elemental stoichiometry are essential for ecologists investigating
 
 Here, we provide an example of the ‘plantspec’ workflow that produces an NIR calibration for N, similar to the one reported in Anderson et al. (2018). This workflow provides a template to produce robust calibration models and increase the application of NIR in ecology. Although we focus on plant stoichiometry, the workflow presented here can be applied broadly for a broad range of applications, including soils, remote sensing data, solutions and tissues. Finally, our global dataset provides unprecedented access to NIR calibration data as they pertain to tissue concentrations of key plant limiting elements. We hope that 'plantspec' will help to form a community of users who share data in order to increase the utility of NIR for ecologists, and we provide a submission portal to facilitate data sharing: [plantspec submission portal](https://griffithdan.github.io/pages/code_and_data/plantspec/data-submission.html).
 
-Check out our vignette for a full tutorial for using 'plantspec!'
+[Check out our vignette for a full tutorial for using 'plantspec!'](https://griffithdan.github.io/pages/code_and_data/plantspec.html)
 
 ## Functionality in 'plantspec'
 
