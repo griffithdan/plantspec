@@ -46,7 +46,7 @@ install_github(repo = "griffithdan/plantspecDB") # Install data package
 ```
 
 ## Data organization and plotting
-The dataset 'plantspec.data' includes all of the wet lab data for this example. We will start by subsetting those data until have have only the data we want to use for model fitting. For example, we only want data from the original dataset and excluding Bryophytes and litter samples.
+The dataset 'plantspec.data' includes all of the wet lab data for this example. We will start by subsetting those data until we have only the data we want to use for model fitting. For example, we only want data from the original dataset and excluding Bryophytes and litter samples.
 
 ```{r org, results = 'hide'}
 
