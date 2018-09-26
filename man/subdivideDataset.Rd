@@ -4,8 +4,8 @@
 \alias{subdivideDataset}
 \title{Selects a subset of a multivariate (e.g., spectral) dataset.}
 \usage{
-subdivideDataset(spectra, component = NULL, type = "validation", p = 0.2,
-  method = "KS", seed.set = NULL, output = "logical")
+subdivideDataset(spectra, component = NULL, type = "validation",
+  p = 0.2, method = "KS", seed.set = NULL, output = "logical")
 }
 \arguments{
 \item{spectra}{An object of class \code{spectra.list} or

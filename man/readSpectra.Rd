@@ -4,8 +4,8 @@
 \alias{readSpectra}
 \title{Function to read spectra.}
 \usage{
-readSpectra(filelist, wave_unit = "wavenumber", measurement_unit = NULL,
-  ...)
+readSpectra(filelist, wave_unit = "wavenumber",
+  measurement_unit = NULL, ...)
 }
 \arguments{
 \item{filelist}{A vector (e.g., the output of \code{list.files(full.names =

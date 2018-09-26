@@ -9,4 +9,4 @@ Description: This R package provides access to a global dataset of leaf NIR spec
 Imports: tools, KernSmooth, parallel, StatMatch, soil.spec, reshape2, plotly
 Depends: pls, hyperSpec
 License: GPL-2
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
