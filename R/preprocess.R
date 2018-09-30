@@ -11,7 +11,7 @@
 #' derivative.\cr "D2f" - The second derivative.\cr "COE" - Constant Offset
 #' Elimination.\cr "SLS" - Straight Line Subtraction.\cr "SNV" - Vector
 #' Normalization.\cr "MMN" - Min/Max Normalization.\cr "MSC" - Multiplicative
-#' Scattering Correction.
+#' Scattering Correction (Isaksson and Næs, 1988).
 #' @param MSC_reference A reference used in MSC prepreocessing. If NULL, the
 #' mean spectra of the provided spectra is used.
 #' @return Returns an object of class \code{spectra.matrix}. If MSC was
