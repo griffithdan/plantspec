@@ -13,6 +13,7 @@
 #' TRUE)}) containing the file paths for spectra to read.
 #' @param wave_unit "wavenumber" or "wavelength".
 #' @param measurement_unit "absorbance" or "transmittance" or "reflectance".
+#' @param ... additional agruments.
 #' @return Returns an object of class \code{spectra.matrix}.
 #' @author Daniel M Griffith
 #' @references Claudia Beleites and Valter Sergo: hyperSpec: a package to handle

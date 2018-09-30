@@ -14,6 +14,8 @@ TRUE)}) containing the file paths for spectra to read.}
 \item{wave_unit}{"wavenumber" or "wavelength".}
 
 \item{measurement_unit}{"absorbance" or "transmittance" or "reflectance".}
+
+\item{...}{additional agruments.}
 }
 \value{
 Returns an object of class \code{spectra.matrix}.
