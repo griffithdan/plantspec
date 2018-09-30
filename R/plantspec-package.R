@@ -56,6 +56,8 @@ NULL
 #' @keywords calibrations
 #' @examples
 #' 
+#' data(N_cal_shootout)
+#' 
 NULL
 
 #' Sample spectral data: software shootout at the IDRC98
@@ -82,7 +84,7 @@ NULL
 #' @keywords datasets
 #' @examples
 #' 
-#' #data(shootout)
+#' data(shootout)
 #' 
 NULL
 

@@ -25,6 +25,8 @@
 #' character string specifying a preprocessing step or (2) a vector of length 2
 #' specifying a series of preprocessing steps to be applied together. See 
 #' documentation for \code{preprocess()} for all available options.
+#' @param max_comps What is the maximum number of latent vectors to possibly
+#' include in the PLS regression. An integer.
 #' @return Returns an object of class \code{PLSopt}. The object is a list
 #' containing the optimization results. See the following:
 #' 

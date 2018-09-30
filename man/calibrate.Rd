@@ -33,6 +33,9 @@ test/validation set data}
 the parallelization of validation proceedures, using the number of available
 cores - 1. If \code{FALSE} the function will not be parallelized.
 Parrallelization only applies for crossvalidation approaches.}
+
+\item{max_comps}{What is the maximum number of latent vectors to possibly
+include in the PLS regression. An integer.}
 }
 \value{
 Returns an object of class \code{PLScalibration}. The object is a

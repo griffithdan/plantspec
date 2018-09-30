@@ -17,7 +17,7 @@ were determined independently with a LECO CNS-2000.
 }
 \examples{
 
-#data(shootout)
+data(shootout)
 
 }
 \references{

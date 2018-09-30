@@ -29,6 +29,9 @@ the same units as your spectra (e.g., wavenumbers).}
 character string specifying a preprocessing step or (2) a vector of length 2
 specifying a series of preprocessing steps to be applied together. See 
 documentation for \code{preprocess()} for all available options.}
+
+\item{max_comps}{What is the maximum number of latent vectors to possibly
+include in the PLS regression. An integer.}
 }
 \value{
 Returns an object of class \code{PLSopt}. The object is a list

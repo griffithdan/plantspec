@@ -27,6 +27,8 @@
 #' the parallelization of validation proceedures, using the number of available
 #' cores - 1. If \code{FALSE} the function will not be parallelized.
 #' Parrallelization only applies for crossvalidation approaches.
+#' @param max_comps What is the maximum number of latent vectors to possibly
+#' include in the PLS regression. An integer.
 #' @return Returns an object of class \code{PLScalibration}. The object is a
 #' list containing the pls model and the calibration/validation statistics. See
 #' below:\cr

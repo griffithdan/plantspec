@@ -10,7 +10,6 @@
 #' @param type see par.
 #' @param xlim see par.
 #' @param ylim see par.
-#' @param add see par.
 #' @param base_plot Default is FALSE. If FALSE, plots spectra as an interactive \code{plotly} object.
 #' @param ... Additional args.
 #' @author Daniel M Griffith
