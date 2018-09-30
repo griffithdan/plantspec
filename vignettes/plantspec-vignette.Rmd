@@ -33,7 +33,11 @@ Here, we provide an example of the ‘plantspec’ workflow that produces an NIR
 Install 'plantspec' and 'plantspecDB' from GitHub using devtools.
 
 ```{r installation, message = FALSE, warning = FALSE, results = 'hide'}
+<<<<<<< HEAD
 install.packages("devtools", repos = "http://cran.us.r-project.org")
+=======
+install.packages("devtools")
+>>>>>>> c58a19b8ff22843a8a9dea72d9cb473be360e571
 library(devtools)
 install_github(repo = "griffithdan/plantspec") # Install analysis package
   library(plantspec)
