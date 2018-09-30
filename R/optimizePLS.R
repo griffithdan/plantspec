@@ -14,7 +14,7 @@
 #' Rows should be in the same order as the component y-values.
 #' @param training_set A logical vector of \code{length(component)} specifying
 #' \code{TRUE} for training/calibration data and \code{FALSE} for
-#' test/validation set data
+#' test/validation set data.
 #' @param parallel Logical. The default is \code{FALSE}; \code{TRUE} allows for
 #' the parallelization of validation proceedures, using the number of available
 #' cores - 1. If \code{FALSE} the function will not be parallelized.
@@ -23,13 +23,14 @@
 #' the same units as your spectra (e.g., wavenumbers).
 #' @param preprocessing_list A list, where each element is either (1) a single
 #' character string specifying a preprocessing step or (2) a vector of length 2
-#' specifying a series of preprocessing steps to be applied together.
+#' specifying a series of preprocessing steps to be applied together. See 
+#' documentation for \code{preprocess()} for all available options.
 #' @return Returns an object of class \code{PLSopt}. The object is a list
 #' containing the optimization results. See the following:
 #' 
 #' optimization_results - a data.frame containing the RMSEP for each
 #' combination of preprocessing and subsetting tested\cr param_subsets - a list
-#' of regions tried\cr param_preproc - a list of preprecessing steps tried
+#' of regions tried\cr param_preproc - a list of preprecessing steps tried.
 #' @author Daniel M Griffith
 #' @keywords calibration
 #' @examples
