@@ -15,13 +15,16 @@ containing the spectra to modify.}
 have the attributes (units, resolution, etc.) desired for \code{x}.}
 }
 \value{
-Returns an object of class \code{spectra.list} or
-\code{spectra.matrix} containing the modified spectra.
+Returns an object of class \code{spectra.matrix} containing the modified spectra.
 }
 \description{
 This function accepts spectra as a \code{spectra.list} or
-\code{spectra.matrix} object manipulates it for conform to to the
-units,resolution, and extent of a reference dataset.
+\code{spectra.matrix} object, and manipulates these spectra to conform to the
+units, resolution, and extent of a reference dataset. The transformations
+occur in the following order:
+ - Conversion between wavelength and wavenumber with \code{convertSpectra()}.
+ - Conversion among absorbance, reflectance, transmittance values with \code{convertSpectra()}.
+ - Resampling of spectra is done with \code{approx()}, which performs a linear interpolation.
 }
 \examples{
 

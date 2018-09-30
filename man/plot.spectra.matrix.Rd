@@ -19,7 +19,11 @@ containing the spectra to plot.}
 
 \item{ylim}{see par.}
 
+\item{base_plot}{Default is FALSE. If FALSE, plots spectra as an interactive \code{plotly} object.}
+
 \item{...}{Additional args.}
+
+\item{add}{see par.}
 }
 \description{
 This function accepts spectra in a \code{spectra.list} or
