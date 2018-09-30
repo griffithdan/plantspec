@@ -1,7 +1,8 @@
 #' Function to preprocess on spectra.
 #' 
 #' This function accepts spectra, performs the desired transformations, and
-#' returns the results.
+#' returns the results. The full list of available transformations is specified
+#' below under the parameter "transformation." 
 #' 
 #' 
 #' @param spec An object of class \code{spectra.list} or \code{spectra.matrix}.
@@ -16,6 +17,7 @@
 #' @return Returns an object of class \code{spectra.matrix}. If MSC was
 #' performed, the mean/reference spectra is returned as an attribute called
 #' "MSC_reference."
+#' @references Tomas Isaksson and Tormod Næs, "The Effect of Multiplicative Scatter Correction (MSC) and Linearity Improvement in NIR Spectroscopy," Appl. Spectrosc. 42, 1273-1284 (1988) 
 #' @author Daniel M Griffith
 #' @keywords manipulation
 #' @examples

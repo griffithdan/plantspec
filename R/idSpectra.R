@@ -2,7 +2,9 @@
 #' 
 #' This function accepts spectra (the same ones given to \code{plot()}), allows
 #' the user to click a scan, then returns the scan name in the console and
-#' colors the selected scan red.
+#' colors the selected scan red. This is useful is you are using the 
+#' \code{plotSpectra()} with \code{base_plot == TRUE}, although the \code{plotly}
+#' interactive version is preferable and already interactive.
 #' 
 #' 
 #' @param spec An object of class \code{spectra.list} or \code{spectra.matrix}.
@@ -13,7 +15,7 @@
 #' 
 #' 
 #' #data(shootout)
-#' #plot(shootout_scans)
+#' #plot(shootout_scans, base_plot == TRUE)
 #' #idSpectra(shootout_scans)
 #' 
 #' @export

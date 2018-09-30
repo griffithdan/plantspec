@@ -4,6 +4,10 @@
 #' data as a \code{spectra.matrix}. It uses the pls::predict.mvr method for
 #' predicting new data and also provides a mahalanobis distance (to the
 #' multivariate center of the calibration dataset) for each new sample.
+#' In order to do conduct the prediction, the new data are subsetted with
+#' \code(subsetSpectra()) and then preprocessed with \code{preprocess()}, 
+#' according to the optimal transformation information stored in the PLS 
+#' calibration object.
 #' 
 #' 
 #' @param object An object of class \code{PLScalibration} containing the model.

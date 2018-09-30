@@ -1,7 +1,7 @@
 #' Function to average spectra.
 #' 
 #' This function accepts spectra, averages them, and returns the results. This
-#' function is a simple wrapper for the aggregate function, made to work
+#' function is a simple wrapper for the \code{aggregate()} function, made to work
 #' smoothly with spectra.
 #' 
 #' 
@@ -9,7 +9,7 @@
 #' @param by Either (i) a vector of length \code{nrow(spec)} that specifies
 #' which combinations of spectra to average together, or (ii) a single numeric
 #' value specifying how many scans to combine, in order. Using the former
-#' option, the mean spectra will be named according to the values of by. For
+#' option, the mean spectra will be named according to the values of \code{by}. For
 #' the latter option, they will be named in order numerically.
 #' @return Returns an object of class \code{spectra.matrix}.
 #' @author Daniel M Griffith

@@ -1,3 +1,27 @@
+#' Function to plot spectra.
+#' 
+#' This function accepts spectra in a \code{spectra.list} or
+#' \code{spectra.matrix} object and plots them.
+#' 
+#' 
+#' @param x An object of class \code{spectra.list} or \code{spectra.matrix}
+#' containing the spectra to plot.
+#' @param col see par.
+#' @param type see par.
+#' @param xlim see par.
+#' @param ylim see par.
+#' @param add see par.
+#' @param base_plot Default is FALSE. If FALSE, plots spectra as an interactive \code{plotly} object.
+#' @param ... Additional args.
+#' @author Daniel M Griffith
+#' @keywords visualization
+#' @examples
+#' 
+#' 
+#' #data(shootout)
+#' #plot(shootout_scans)
+#' 
+#' @export plotSpectra
 plotSpectra <- function(x, col = "black",type = NULL, xlim = NULL, ylim = NULL, add = FALSE, base_plot = FALSE, ...){
 
   if(base_plot == TRUE){  

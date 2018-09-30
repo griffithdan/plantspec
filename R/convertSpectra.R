@@ -1,8 +1,10 @@
 #' Converts spectra into new units.
 #' 
 #' This function accepts spectra in a single \code{spectra.list} or
-#' \code{spectra.matrix} object performs a specified units conversion.
-#' 
+#' \code{spectra.matrix} object performs a specified units conversion. 
+#' Conversion between wavelengths and wave numbers are reliable.  However, 
+#' conversions among transmittance, absorbance, and reflectance are
+#' naive estimations (inverse log10 transformations) provided for convenience. 
 #' 
 #' @param x An object of class \code{spectra.list} or \code{spectra.matrix}.
 #' @param method The desired conversion. Selected from:

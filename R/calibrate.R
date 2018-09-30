@@ -1,8 +1,12 @@
 #' Fits a spectral PLS calibration model.
 #' 
-#' This function is a wrapper for the mvr function in the pls package. The
+#' This function is a wrapper for \code{mvr()} in the pls package. The
 #' function fits a Partial Least Squares (PLS) model relating a set of spectra
-#' to a component variable.
+#' to a component variable. The function uses leave-one-out crossvalidation to 
+#' calculate the optimal number of latent vectors to use in the PLS regression.
+#' The optimal number of latent vectors is the minimum number of factors that 
+#' result in a predicted residual error sum of squares (PRESS) statistic with 
+#' a probability less than or equal to 0.75.
 #' 
 #' 
 #' @param component A vector of y-values. One for each spectrum.
@@ -22,7 +26,7 @@
 #' @param parallel Logical. The default is \code{FALSE}; \code{TRUE} allows for
 #' the parallelization of validation proceedures, using the number of available
 #' cores - 1. If \code{FALSE} the function will not be parallelized.
-#' Parrallelization on applies for crossvalidation approaches.
+#' Parrallelization only applies for crossvalidation approaches.
 #' @return Returns an object of class \code{PLScalibration}. The object is a
 #' list containing the pls model and the calibration/validation statistics. See
 #' below:\cr
