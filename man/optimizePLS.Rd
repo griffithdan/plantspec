@@ -42,13 +42,16 @@ combination of preprocessing and subsetting tested\cr param_subsets - a list
 of regions tried\cr param_preproc - a list of preprecessing steps tried.
 }
 \description{
-This function iterates combinations of preprocessing steps and spectral
+This function iterates all combinations of preprocessing steps and spectral
 region subsets, fitting PLS models for each, and ranks the resulting models
 according to the Root Mean Squared Error of Prediction (or CV for cross
 validation). This process informs the selection of parameters for fitting
 PLS models with the function \code{calibrate()}. The function also
 determines the rank (number of latent vectors) that is optimal for each
 model.
+}
+\details{
+By default the spectral regions are defined in wavenumbers as list(c(9400,7500), c(7500,6100), c(6100,5450), c(5450,4600), c(4600,4250)).
 }
 \examples{
 
