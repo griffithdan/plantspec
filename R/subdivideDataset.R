@@ -102,7 +102,7 @@ subdivideDataset <- function(spectra, component = NULL, type = "validation", p =
       }
       if (method == "MDKS"){
         augment_mat <- cbind(component,spectra)
-        dmat <- mahalanobis.dist(data.x = prcomp(augment_mat, scale = T)$x[,1:round(0.2 * nrow(spectra))])
+        dmat <- mahalanobis.dist(data.x = prcomp(augment_mat, scale = T)$x[,1:round(0.2 * ncol(spectra))])
       }
     
       seed <- which(dmat == max(dmat), arr.ind=TRUE)

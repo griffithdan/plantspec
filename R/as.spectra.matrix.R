@@ -18,6 +18,7 @@
 #'
 #' 
 #' @export as.spectra.matrix
+#' @export 
 
 as.spectra.matrix <- function(x, ...){
   
