@@ -11,9 +11,10 @@
 #' @keywords manipulation
 #' @examples
 #' 
-#' 
-#' #data(shootout)
-#' #scans <- as.spectra.list(shootout_scans)
+#' \dontrun{
+#' data(shootout)
+#' scans <- as.spectra.list(shootout_scans)
+#' }
 #' 
 #' @export as.spectra.list
 #' @export 

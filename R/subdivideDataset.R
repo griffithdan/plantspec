@@ -59,11 +59,11 @@
 #' @keywords manipulation
 #' @examples
 #' 
-#' 
-#' #data(shootout)
-#' #val_set <- subdivideDataset(spectra = shootout_scans, type = "validation", method = "KS")
-#' #table(val_set)
-#' 
+#' \dontrun{
+#' data(shootout)
+#' val_set <- subdivideDataset(spectra = shootout_scans, type = "validation", method = "KS")
+#' table(val_set)
+#' }
 #' 
 #' @export subdivideDataset
 subdivideDataset <- function(spectra, component = NULL, type = "validation", p = 0.2, method = "KS", seed.set = NULL, output = "logical"){

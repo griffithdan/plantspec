@@ -16,9 +16,10 @@
 #' @keywords visualization
 #' @examples
 #' 
-#' 
-#' #data(shootout)
-#' #plot(shootout_scans)
+#' \dontrun{
+#' data(shootout)
+#' plot(shootout_scans)
+#' }
 #' 
 #' @export plot.spectra.matrix
 #' @export 

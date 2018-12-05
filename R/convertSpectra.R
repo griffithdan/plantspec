@@ -19,11 +19,11 @@
 #' @keywords manipulation
 #' @examples
 #' 
-#' 
-#' #data(shootout)
-#' #attributes(shootout_scans)
-#' #converted_scans <- convertSpectra(x = shootout_scans, method = "WL_to_WN")
-#' 
+#' \dontrun{
+#' data(shootout)
+#' attributes(shootout_scans)
+#' converted_scans <- convertSpectra(x = shootout_scans, method = "WL_to_WN")
+#' }
 #' 
 #' 
 #' @export convertSpectra

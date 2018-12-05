@@ -18,12 +18,12 @@
 #' @keywords manipulation
 #' @examples
 #' 
-#' 
-#' #data(shootout)
-#' #reference <- convertSpectra(x = shootout_scans, method = "WL_to_WN")
-#' #reference <- reference[,1:100] 
-#' #makeCompatible(x = shootout_scans, ref = reference)
-#' 
+#' \dontrun{
+#' data(shootout)
+#' reference <- convertSpectra(x = shootout_scans, method = "WL_to_WN")
+#' reference <- reference[,1:100] 
+#' makeCompatible(x = shootout_scans, ref = reference)
+#' }
 #' 
 #' @export makeCompatible
 makeCompatible <- function(x, ref){

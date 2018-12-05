@@ -25,10 +25,10 @@
 #' @keywords read/write/fileio
 #' @examples
 #' 
-#' 
-#' ## MY_PATH = is a text string identifying the folder with the spectra 
-#' # specs <- readSpectra(filelist = list.files("MY_PATH", full.names = T))
-#' 
+#' \dontrun{
+#' # MY_PATH = is a text string identifying the folder with the spectra 
+#' specs <- readSpectra(filelist = list.files("MY_PATH", full.names = T))
+#' }
 #' 
 #' @export readSpectra
 readSpectra <- function(filelist, wave_unit = "wavenumber", measurement_unit = NULL, ...){

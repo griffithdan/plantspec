@@ -17,9 +17,10 @@
 #' @keywords visualization
 #' @examples
 #' 
-#' 
-#' #data(shootout)
-#' #plot(shootout_scans)
+#' \dontrun{
+#' data(shootout)
+#' plot(shootout_scans)
+#' }
 #' 
 #' @export plotSpectra
 plotSpectra <- function(x, col = "black",type = NULL, xlim = NULL, ylim = NULL, add = FALSE, base_plot = FALSE, ...){

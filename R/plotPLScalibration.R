@@ -19,9 +19,10 @@
 #' @keywords visualization
 #' @examples
 #' 
-#' 
-#' #data(N_cal_shootout)
-#' #plot(N_cal_shootout)
+#' \dontrun{
+#' data(N_cal_shootout)
+#' plot(N_cal_shootout)
+#' }
 #' 
 #' @export plotPLScalibration
 plotPLScalibration <- function(x, pch = 21, bg = "gray", ncomp = NULL, plottype = "prediction", ...){

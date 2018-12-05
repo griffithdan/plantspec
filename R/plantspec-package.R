@@ -56,8 +56,9 @@ NULL
 #' @keywords calibrations
 #' @examples
 #' 
+#' \dontrun{
 #' data(N_cal_shootout)
-#' 
+#' }
 NULL
 
 #' Sample spectral data: software shootout at the IDRC98
@@ -84,8 +85,9 @@ NULL
 #' @keywords datasets
 #' @examples
 #' 
+#' \dontrun{
 #' data(shootout)
-#' 
+#' }
 NULL
 
 

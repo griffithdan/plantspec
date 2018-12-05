@@ -16,18 +16,18 @@
 #' @keywords manipulation
 #' @examples
 #' 
-#' 
-#' #data(shootout)
-#' #by_vector <- gsub(pattern = "_.*",replacement = "", 
-#' # x = row.names(shootout_scans)) # average everything to one scan
-#' #mean_scans <- averageSpectra(spec = shootout_scans, by = by_vector)
-#' ##or...
-#' #mean_scans <- averageSpectra(spec = shootout_scans, by = 3) 
-#' ## average scans in groups of 3
-#' #par(mfrow=c(1,2))
-#' #plot(shootout_scans)
-#' #plot(mean_scans)
-#' 
+#' \dontrun{
+#' data(shootout)
+#' by_vector <- gsub(pattern = "_.*",replacement = "", 
+#'  x = row.names(shootout_scans)) # average everything to one scan
+#' mean_scans <- averageSpectra(spec = shootout_scans, by = by_vector)
+#' #or...
+#' mean_scans <- averageSpectra(spec = shootout_scans, by = 3) 
+#' # average scans in groups of 3
+#' par(mfrow=c(1,2))
+#' plot(shootout_scans)
+#' plot(mean_scans)
+#' }
 #' 
 #' @export averageSpectra
 averageSpectra <- function(spec = NULL, by = NULL){ # this is a glorified aggregate function, but is wrapped up to work easy for spectra

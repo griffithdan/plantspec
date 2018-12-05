@@ -17,10 +17,10 @@
 #' @keywords read/write/fileio
 #' @examples
 #' 
-#' 
-#' # data(shootout)
-#' # writeSpectra(spectra = shootout_scans, path = "MY_PATH")
-#' 
+#' \dontrun{
+#' data(shootout)
+#' writeSpectra(spectra = shootout_scans, path = "MY_PATH")
+#' }
 #' 
 #' @export writeSpectra
 writeSpectra <- function(spectra,filelist=NULL,path=NULL){

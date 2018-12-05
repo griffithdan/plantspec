@@ -14,15 +14,15 @@
 #' @keywords manipulation
 #' @examples
 #' 
+#' \dontrun{
+#' data(shootout)
+#' s_mat <- matrix(data = c(2000,1750,1000,500), nrow = 2, ncol = 2, byrow = T)
+#' sub_data <- subsetSpectra(spec = shootout_scans, ranges = s_mat)
 #' 
-#' #data(shootout)
-#' #s_mat <- matrix(data = c(2000,1750,1000,500), nrow = 2, ncol = 2, byrow = T)
-#' #sub_data <- subsetSpectra(spec = shootout_scans, ranges = s_mat)
-#' 
-#' #par(mfrow=c(1,2))
-#' #plot(shootout_scans)
-#' #plot(sub_data)
-#' 
+#' par(mfrow=c(1,2))
+#' plot(shootout_scans)
+#' plot(sub_data)
+#' }
 #' 
 #' @export subsetSpectra
 subsetSpectra <- function(spec, ranges){

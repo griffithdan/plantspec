@@ -19,9 +19,10 @@
 #' @keywords visualization
 #' @examples
 #' 
-#' 
-#' #data(N_cal_shootout)
-#' #plot(N_cal_shootout)
+#' \dontrun{
+#' data(N_cal_shootout)
+#' plot(N_cal_shootout)
+#' }
 #' 
 #' @export plot.PLScalibration
 #' @export 

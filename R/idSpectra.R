@@ -13,10 +13,11 @@
 #' @keywords visualization
 #' @examples
 #' 
-#' 
-#' #data(shootout)
-#' #plot(shootout_scans, base_plot == TRUE)
-#' #idSpectra(shootout_scans)
+#' \dontrun{
+#' data(shootout)
+#' plot(shootout_scans, base_plot == TRUE)
+#' idSpectra(shootout_scans)
+#' }
 #' 
 #' @export
 #' 

@@ -46,10 +46,10 @@
 #' 
 #' 
 #' # See main leaf.spec-package example. But:
-#' 
-#' #data(shootout)
-#' #temp <- calibrate(component = shootout_wetlab$N, spectra = shootout_scans, validation = "LOO")
-#' 
+#' \dontrun{
+#' data(shootout)
+#' temp <- calibrate(component = shootout_wetlab$N, spectra = shootout_scans, validation = "LOO")
+#' }
 #' 
 #' @export calibrate
 calibrate <- function(component, spectra, optimal_params = NULL, optimal_model = 1, validation = 'none', training_set = NULL, parallel = FALSE, max_comps = 10){
