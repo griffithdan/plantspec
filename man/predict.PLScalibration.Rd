@@ -38,14 +38,15 @@ calibration object.
 }
 \examples{
 
+\dontrun{
+data(shootout)
+data(N_cal_shootout)
 
-#data(shootout)
-#data(N_cal_shootout)
+shootout_scans <- convertSpectra(x = shootout_scans, method = "WL_to_WN")
 
-#shootout_scans <- convertSpectra(x = shootout_scans, method = "WL_to_WN")
-
-#N_predicted <- predict(object = N_cal_shootout, newdata = shootout_scans)
-#hist(N_predicted)
+N_predicted <- predict(object = N_cal_shootout, newdata = shootout_scans)
+hist(N_predicted)
+}
 
 }
 \author{

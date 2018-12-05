@@ -27,10 +27,10 @@ Currently this function only writes ".dpt" files.
 }
 \examples{
 
-
-# data(shootout)
-# writeSpectra(spectra = shootout_scans, path = "MY_PATH")
-
+\dontrun{
+data(shootout)
+writeSpectra(spectra = shootout_scans, path = "MY_PATH")
+}
 
 }
 \author{

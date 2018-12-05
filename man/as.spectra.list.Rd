@@ -20,9 +20,10 @@ class \code{spectra.matrix}.
 }
 \examples{
 
-
-#data(shootout)
-#scans <- as.spectra.list(shootout_scans)
+\dontrun{
+data(shootout)
+scans <- as.spectra.list(shootout_scans)
+}
 
 }
 \author{

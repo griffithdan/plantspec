@@ -31,9 +31,10 @@ This function accepts spectra in a \code{spectra.list} or
 }
 \examples{
 
-
-#data(shootout)
-#plot(shootout_scans)
+\dontrun{
+data(shootout)
+plot(shootout_scans)
+}
 
 }
 \author{

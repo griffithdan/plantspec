@@ -60,11 +60,11 @@ methods (see the method parameter for details).
 }
 \examples{
 
-
-#data(shootout)
-#val_set <- subdivideDataset(spectra = shootout_scans, type = "validation", method = "KS")
-#table(val_set)
-
+\dontrun{
+data(shootout)
+val_set <- subdivideDataset(spectra = shootout_scans, type = "validation", method = "KS")
+table(val_set)
+}
 
 }
 \references{

@@ -17,8 +17,9 @@ were determined independently with a LECO CNS-2000.
 }
 \examples{
 
+\dontrun{
 data(shootout)
-
+}
 }
 \references{
 McClure, W., 1998. Software shootout at the idrc98. In: The

@@ -63,10 +63,10 @@ a probability less than or equal to 0.75.
 
 
 # See main leaf.spec-package example. But:
-
-#data(shootout)
-#temp <- calibrate(component = shootout_wetlab$N, spectra = shootout_scans, validation = "LOO")
-
+\dontrun{
+data(shootout)
+temp <- calibrate(component = shootout_wetlab$N, spectra = shootout_scans, validation = "LOO")
+}
 
 }
 \author{

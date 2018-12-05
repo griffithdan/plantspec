@@ -31,13 +31,13 @@ below under the parameter "transformation."
 }
 \examples{
 
-
-#data(shootout)
-#processed_data <- preprocess(spec = shootout_scans, transformation = "COE")
-#par(mfrow=c(1,2))
-#plot(shootout_scans)
-#plot(processed_data)
-
+\dontrun{
+data(shootout)
+processed_data <- preprocess(spec = shootout_scans, transformation = "COE")
+par(mfrow=c(1,2))
+plot(shootout_scans)
+plot(processed_data)
+}
 
 }
 \references{

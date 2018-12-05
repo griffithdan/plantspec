@@ -22,10 +22,10 @@ resolution and extend.
 }
 \examples{
 
-
-#data(shootout)
-#shootout_scans_x_2 <- combineSpectra(x = shootout_scans, y = shootout_scans)
-
+\dontrun{
+data(shootout)
+shootout_scans_x_2 <- combineSpectra(x = shootout_scans, y = shootout_scans)
+}
 
 
 }

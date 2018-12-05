@@ -31,10 +31,10 @@ request/suggest file formats.
 }
 \examples{
 
-
-## MY_PATH = is a text string identifying the folder with the spectra 
-# specs <- readSpectra(filelist = list.files("MY_PATH", full.names = T))
-
+\dontrun{
+# MY_PATH = is a text string identifying the folder with the spectra 
+specs <- readSpectra(filelist = list.files("MY_PATH", full.names = T))
+}
 
 }
 \references{

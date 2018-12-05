@@ -21,10 +21,11 @@ interactive version is preferable and already interactive.
 }
 \examples{
 
-
-#data(shootout)
-#plot(shootout_scans, base_plot == TRUE)
-#idSpectra(shootout_scans)
+\dontrun{
+data(shootout)
+plot(shootout_scans, base_plot == TRUE)
+idSpectra(shootout_scans)
+}
 
 }
 \author{

@@ -10,8 +10,9 @@ NIR calibration for Nitrogen using the \code{shootout} data.
 }
 \examples{
 
+\dontrun{
 data(N_cal_shootout)
-
+}
 }
 \references{
 McClure, W., 1998. Software shootout at the idrc98. In: The
