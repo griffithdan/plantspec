@@ -27,7 +27,8 @@ spectra. The function incorporates these spectra into a single
 (e.g., .0), and .spc files. Files import for .spc files is done using the
 package \code{hpyerSpec} and import of opus format is done using the package
 \code{soil.spec}. These formats are auto detected. Feel free to
-request/suggest file formats.
+request/suggest file formats. NOTE: opus file support has been temporarily 
+suspended due to installations issues created by deprecation of soil.spec.
 }
 \examples{
 

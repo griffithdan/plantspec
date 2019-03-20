@@ -21,7 +21,7 @@
 #' 
 #' Package dependencies:
 #'  - \code{hyperSpec} is used to read "spc" files.
-#'  - \code{soil.spec} is used to read "opus" files.
+#'  - \code{soil.spec} is used to read "opus" files. Temporarily suspended.
 #'  - \code{KernSmooth} is required to calculate derivitives for spectral transformations.
 #'  - The \code{pls} package is used for all PLS fitting.
 #'  - Mahalanobis distances are calculated with \code{StatMatch}.
@@ -36,7 +36,6 @@
 #' package version 2.4-3. http://CRAN.R-project.org/package=pls
 #' @keywords package
 #' @import tools KernSmooth parallel StatMatch reshape2 plotly pls
-#' @importFrom soil.spec read.opus
 #' @importFrom hyperSpec read.spc
 #' @examples
 #' 

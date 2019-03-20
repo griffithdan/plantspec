@@ -6,7 +6,8 @@
 #' (e.g., .0), and .spc files. Files import for .spc files is done using the
 #' package \code{hpyerSpec} and import of opus format is done using the package
 #' \code{soil.spec}. These formats are auto detected. Feel free to
-#' request/suggest file formats.
+#' request/suggest file formats. NOTE: opus file support has been temporarily 
+#' suspended due to installations issues created by deprecation of soil.spec.
 #' 
 #' 
 #' @param filelist A vector (e.g., the output of \code{list.files(full.names =
@@ -44,18 +45,18 @@ readSpectra <- function(filelist, wave_unit = "wavenumber", measurement_unit = N
     class(spec) <- "spectra.list"
     spec <- as.spectra.matrix(spec)
   }
-  if(f_ext %in% as.character(c(0:9))){
-    spec <- suppressMessages(read.opus(file.name = as.list(filelist)))
-    spec <- spec@data@ab
-    row.names(spec) <- basename(filelist)
-    spec$SAMPLEID <- NULL
-    colnames(spec) <- as.numeric(gsub(pattern = "n", replacement = "", x = colnames(spec)))
-    spec <- as.matrix(spec)
-    
-      attr(spec, "wave_unit") <- wave_unit
-      attr(spec, "measurement_unit") <- measurement_unit
-      class(spec) <- "spectra.matrix"
-  }
+  #if(f_ext %in% as.character(c(0:9))){
+  #  spec <- suppressMessages(read.opus(file.name = as.list(filelist)))
+  #  spec <- spec@data@ab
+  #  row.names(spec) <- basename(filelist)
+  #  spec$SAMPLEID <- NULL
+  #  colnames(spec) <- as.numeric(gsub(pattern = "n", replacement = "", x = colnames(spec)))
+  #  spec <- as.matrix(spec)
+  #  
+  #    attr(spec, "wave_unit") <- wave_unit
+  #    attr(spec, "measurement_unit") <- measurement_unit
+  #    class(spec) <- "spectra.matrix"
+  #}
   if(f_ext %in% c("spc")){
     spec <- lapply(X=filelist,FUN=function(x){read.spc(filename = x)$spc})
     spec <- do.call('rbind',spec)
